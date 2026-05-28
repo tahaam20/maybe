@@ -1,0 +1,549 @@
+:root {
+    --primary-purple: #9C27B0;
+    --light-purple: #E1BEE7;
+    --dark-purple: #7B1FA2;
+    --vibrant-yellow: #FFEB3B;
+    --light-yellow: #FFF9C4;
+    --gold-yellow: #FFC107;
+    --fresh-green: #4CAF50;
+    --light-green: #C8E6C9;
+    --vibrant-orange: #FF9800;
+    --light-orange: #FFE0B2;
+    --vibrant-cyan: #00BCD4;
+    --light-cyan: #B2EBF2;
+    --primary-yellow: #FFCB2A;
+    --primary-purple: #713F94;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e4ac53 40%, #667eea 60%) !important;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+.global-decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 8s ease-in-out infinite;
+}
+
+.decoration-circle:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.decoration-circle:nth-child(2) {
+    width: 120px;
+    height: 120px;
+    top: 70%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.decoration-circle:nth-child(3) {
+    width: 60px;
+    height: 60px;
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+.decoration-circle:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    top: 30%;
+    right: 30%;
+    animation-delay: 1s;
+}
+
+.decoration-circle:nth-child(5) {
+    width: 70px;
+    height: 70px;
+    bottom: 40%;
+    right: 20%;
+    animation-delay: 3s;
+}
+
+.decoration-circle:nth-child(6) {
+    width: 90px;
+    height: 90px;
+    top: 60%;
+    left: 30%;
+    animation-delay: 5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-20px) scale(1.1); }
+}
+
+.register-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 700px;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid var(--primary-purple);
+    margin: 20px 0;
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--light-purple);
+}
+
+.register-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    margin: 0 auto 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.register-title {
+    font-size: 2.2rem;
+    color: var(--primary-purple);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.register-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.form-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    border: 1px solid var(--light-purple);
+}
+
+.section-title {
+    font-size: 1.4rem;
+    color: var(--primary-purple);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--light-purple);
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary-purple);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.required::after {
+    content: " *";
+    color: #f44336;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+/* استایل کلی برای تمام inputها */
+input, select, textarea {
+    width: 100%;
+    padding: 14px 45px 14px 14px;
+    border: 2px solid var(--light-purple);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: right;
+    direction: rtl;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+/* استایل برای inputهای تاریخ با فونت فارسی */
+input[type="date"] {
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+    direction: rtl;
+}
+
+/* استایل برای inputهای تلفن */
+input[type="tel"] {
+    text-align: right;
+    direction: rtl;
+}
+
+/* استایل برای textarea */
+textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+/* استایل برای inputهای عددی */
+input[type="number"] {
+    direction: ltr;
+    text-align: left;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+/* استایل برای کد ملی */
+input#national_code {
+    direction: ltr;
+    text-align: left;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.2);
+    outline: none;
+}
+
+/* استایل برای آیکون‌های داخل input */
+.input-icon {
+    position: absolute;
+    right: 15px;
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-purple);
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+/* برای textarea آیکون در بالا قرار گیرد */
+textarea + .input-icon {
+    top: 20px;
+    transform: translateY(0);
+}
+
+/* استایل برای placeholderها */
+::placeholder {
+    color: #999;
+    text-align: right;
+    direction: rtl;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+    opacity: 1;
+}
+
+/* برای مرورگرهای مختلف */
+::-webkit-input-placeholder {
+    color: #999;
+    text-align: right;
+    direction: rtl;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+::-moz-placeholder {
+    color: #999;
+    text-align: right;
+    direction: rtl;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+:-ms-input-placeholder {
+    color: #999;
+    text-align: right;
+    direction: rtl;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+}
+
+.radio-option input {
+    width: auto;
+    margin-left: 8px;
+}
+
+.terms-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    border: 1px solid var(--light-purple);
+}
+
+.terms-group input {
+    width: auto;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.terms-group label {
+    font-weight: normal;
+    color: #555;
+    line-height: 1.5;
+}
+
+.terms-group a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.terms-group a:hover {
+    text-decoration: underline;
+}
+
+/* جعبه نمایش قوانین */
+.terms-box {
+    margin-bottom: 20px;
+    padding: 15px 15px 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    border: 1px solid var(--light-purple);
+}
+
+.terms-content {
+    max-height: 180px;
+    overflow-y: auto;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.terms-content p + p {
+    margin-top: 8px;
+}
+
+.terms-hint {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.terms-hint--active {
+    color: var(--fresh-green);
+    font-weight: bold;
+}
+
+.register-btn {
+    background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(113, 63, 148, 0.4);
+    margin-top: 10px;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+.register-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(113, 63, 148, 0.6);
+}
+
+.register-btn:active {
+    transform: translateY(-1px);
+}
+
+/* استایل برای پیام‌ها */
+.success {
+    color: var(--fresh-green);
+    background-color: rgba(76, 175, 80, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid var(--fresh-green);
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+.error {
+    color: #f44336;
+    background-color: rgba(244, 67, 54, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #f44336;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+.back-to-home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-to-home a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s;
+    font-weight: bold;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+}
+
+.back-to-home a:hover {
+    color: var(--dark-purple);
+}
+
+.back-to-home svg {
+    margin-right: 5px;
+}
+
+/* استایل مخصوص برای نمایش تاریخ در مرورگرهای مختلف */
+.persian-date {
+    position: relative;
+}
+
+.persian-date::-webkit-datetime-edit {
+    padding: 0;
+    font-family: Vazir, Tahoma, Arial, sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+.persian-date::-webkit-datetime-edit-fields-wrapper {
+    direction: rtl;
+}
+
+.persian-date::-webkit-datetime-edit-text {
+    color: var(--primary-purple);
+    padding: 0 2px;
+}
+
+.persian-date::-webkit-datetime-edit-month-field,
+.persian-date::-webkit-datetime-edit-day-field,
+.persian-date::-webkit-datetime-edit-year-field {
+    color: #333;
+}
+
+.persian-date::-webkit-inner-spin-button {
+    display: none;
+}
+
+.persian-date::-webkit-calendar-picker-indicator {
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .register-container {
+        padding: 30px 20px;
+        max-width: 95%;
+    }
+    
+    .register-title {
+        font-size: 1.8rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-section {
+        padding: 15px;
+    }
+    
+    .section-title {
+        font-size: 1.2rem;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-title {
+        font-size: 1.6rem;
+    }
+    
+    .register-subtitle {
+        font-size: 1rem;
+    }
+    
+    input, textarea {
+        padding: 12px 40px 12px 12px;
+    }
+    
+    .input-icon {
+        right: 10px;
+        font-size: 1rem;
+    }
+}

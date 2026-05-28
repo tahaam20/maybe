@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پنل مدیریت ثبت‌نام — مدارس گویا</title>
+  <link rel="stylesheet" href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css">
+  <link rel="stylesheet" href="/project/styles/admin.css">
+</head>
+<body>
+  <div id="login-view" class="admin-wrap">
+    <div class="card login-card">
+      <h1>پنل مدیریت</h1>
+      <p class="subtitle">مدارس هوشمند گویا — مشاهده ثبت‌نام‌ها</p>
+      <div id="login-alert" class="alert alert-error hidden"></div>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="password">رمز عبور</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="رمز پنل را وارد کنید">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">ورود</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="panel-view" class="admin-wrap hidden">
+    <header class="admin-header">
+      <div>
+        <h1>لیست ثبت‌نام‌ها</h1>
+        <p>مدارس هوشمند گویا</p>
+      </div>
+      <div class="admin-actions">
+        <button type="button" id="export-btn" class="btn btn-export">خروجی Excel</button>
+        <button type="button" id="refresh-btn" class="btn btn-secondary">بروزرسانی</button>
+        <a href="/project/register.html" class="btn btn-secondary">فرم ثبت‌نام</a>
+        <button type="button" id="logout-btn" class="btn btn-danger">خروج</button>
+      </div>
+    </header>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="number" id="stat-count">0</div>
+        <div class="label">تعداد ثبت‌نام</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div id="panel-alert" class="alert alert-error hidden"></div>
+      <div id="loading" class="loading hidden">در حال بارگذاری...</div>
+      <div id="empty-state" class="empty-state hidden">
+        هنوز ثبت‌نامی ثبت نشده است.
+      </div>
+      <div id="table-wrap" class="table-wrap hidden">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>نام دانش‌آموز</th>
+              <th>نام پدر</th>
+              <th>تاریخ تولد</th>
+              <th>کد ملی</th>
+              <th>معدل</th>
+              <th>تلفن منزل</th>
+              <th>موبایل پدر</th>
+              <th>موبایل مادر</th>
+              <th>شرایط زندگی</th>
+              <th>مدرسه قبلی</th>
+              <th>آدرس</th>
+              <th>تاریخ ثبت</th>
+            </tr>
+          </thead>
+          <tbody id="registrations-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const TOKEN_KEY = 'goya_admin_token';
+    const livingLabels = {
+      both_parents: 'پدر و مادر',
+      father_only: 'فقط پدر',
+      mother_only: 'فقط مادر',
+      other: 'سایر',
+    };
+
+    const loginView = document.getElementById('login-view');
+    const panelView = document.getElementById('panel-view');
+    const loginForm = document.getElementById('login-form');
+    const loginAlert = document.getElementById('login-alert');
+    const panelAlert = document.getElementById('panel-alert');
+    const loadingEl = document.getElementById('loading');
+    const emptyState = document.getElementById('empty-state');
+    const tableWrap = document.getElementById('table-wrap');
+    const tbody = document.getElementById('registrations-body');
+    const statCount = document.getElementById('stat-count');
+
+    function getToken() {
+      return sessionStorage.getItem(TOKEN_KEY);
+    }
+
+    function setToken(token) {
+      if (token) sessionStorage.setItem(TOKEN_KEY, token);
+      else sessionStorage.removeItem(TOKEN_KEY);
+    }
+
+    function showAlert(el, message, type) {
+      el.textContent = message;
+      el.className = `alert alert-${type}`;
+      el.classList.remove('hidden');
+    }
+
+    function hideAlert(el) {
+      el.classList.add('hidden');
+    }
+
+    function showPanel() {
+      loginView.classList.add('hidden');
+      panelView.classList.remove('hidden');
+    }
+
+    function showLogin() {
+      panelView.classList.add('hidden');
+      loginView.classList.remove('hidden');
+    }
+
+    function formatDate(iso) {
+      if (!iso) return '—';
+      try {
+        const normalized = iso.includes('T') ? iso : iso.replace(' ', 'T');
+        return new Date(normalized).toLocaleString('fa-IR', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+      } catch {
+        return iso;
+      }
+    }
+
+    async function loadRegistrations() {
+      const token = getToken();
+      if (!token) {
+        showLogin();
+        return;
+      }
+
+      hideAlert(panelAlert);
+      loadingEl.classList.remove('hidden');
+      emptyState.classList.add('hidden');
+      tableWrap.classList.add('hidden');
+      tbody.innerHTML = '';
+
+      try {
+        const res = await fetch('/api/registrations', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (res.status === 401) {
+          setToken(null);
+          showLogin();
+          showAlert(loginAlert, 'نشست منقضی شده. دوباره وارد شوید.', 'error');
+          return;
+        }
+
+        if (!res.ok) {
+          throw new Error('خطا در دریافت داده‌ها');
+        }
+
+        const data = await res.json();
+        statCount.textContent = data.count;
+
+        if (!data.registrations.length) {
+          emptyState.classList.remove('hidden');
+          return;
+        }
+
+        tbody.innerHTML = data.registrations
+          .map((r) => {
+            const living =
+              r.living_with === 'other' && r.other_living_details
+                ? `سایر: ${escapeHtml(r.other_living_details)}`
+                : livingLabels[r.living_with] || r.living_with;
+
+            return `<tr>
+              <td>${r.id}</td>
+              <td>${escapeHtml(r.full_name)}</td>
+              <td>${escapeHtml(r.father_name)}</td>
+              <td>${escapeHtml(r.birth_date)}</td>
+              <td>${escapeHtml(r.national_code)}</td>
+              <td>${r.first_term_grade}</td>
+              <td dir="ltr">${escapeHtml(r.home_phone)}</td>
+              <td dir="ltr">${escapeHtml(r.father_mobile)}</td>
+              <td dir="ltr">${escapeHtml(r.mother_mobile)}</td>
+              <td><span class="badge">${living}</span></td>
+              <td>${escapeHtml(r.previous_school || '—')}</td>
+              <td class="wrap">${escapeHtml(r.home_address)}</td>
+              <td>${formatDate(r.created_at)}</td>
+            </tr>`;
+          })
+          .join('');
+
+        tableWrap.classList.remove('hidden');
+      } catch (err) {
+        showAlert(panelAlert, err.message || 'خطای شبکه', 'error');
+      } finally {
+        loadingEl.classList.add('hidden');
+      }
+    }
+
+    function escapeHtml(str) {
+      if (str == null) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideAlert(loginAlert);
+
+      const password = document.getElementById('password').value;
+
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          showAlert(loginAlert, data.error || 'ورود ناموفق', 'error');
+          return;
+        }
+
+        setToken(data.token);
+        showPanel();
+        await loadRegistrations();
+      } catch {
+        showAlert(loginAlert, 'خطا در اتصال به سرور', 'error');
+      }
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      setToken(null);
+      showLogin();
+      loginForm.reset();
+    });
+
+    document.getElementById('refresh-btn').addEventListener('click', loadRegistrations);
+
+    document.getElementById('export-btn').addEventListener('click', async () => {
+      const token = getToken();
+      if (!token) return;
+
+      const exportBtn = document.getElementById('export-btn');
+      exportBtn.disabled = true;
+      hideAlert(panelAlert);
+
+      try {
+        const res = await fetch('/api/registrations/export', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (res.status === 401) {
+          setToken(null);
+          showLogin();
+          showAlert(loginAlert, 'نشست منقضی شده. دوباره وارد شوید.', 'error');
+          return;
+        }
+
+        if (!res.ok) {
+          throw new Error('خطا در ساخت فایل Excel');
+        }
+
+        const blob = await res.blob();
+        const disposition = res.headers.get('Content-Disposition') || '';
+        const match = disposition.match(/filename="?([^";]+)"?/);
+        const filename = match ? match[1] : `registrations-${new Date().toISOString().slice(0, 10)}.xlsx`;
+
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+
+        showAlert(panelAlert, 'فایل Excel دانلود شد.', 'success');
+        setTimeout(() => hideAlert(panelAlert), 3000);
+      } catch (err) {
+        showAlert(panelAlert, err.message || 'خطای شبکه', 'error');
+      } finally {
+        exportBtn.disabled = false;
+      }
+    });
+
+    if (getToken()) {
+      showPanel();
+      loadRegistrations();
+    }
+  </script>
+</body>
+</html>

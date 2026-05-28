@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مجموعه مدارس غیردولتی پسرانه گویا</title>
+    <style>
+      :root {
+        --primary-purple: #9c27b0;
+        --light-purple: #e1bee7;
+        --dark-purple: #7b1fa2;
+        --vibrant-yellow: #ffeb3b;
+        --light-yellow: #fff9c4;
+        --gold-yellow: #ffc107;
+        --fresh-green: #4caf50;
+        --light-green: #c8e6c9;
+        --vibrant-orange: #ff9800;
+        --light-orange: #ffe0b2;
+        --vibrant-cyan: #00bcd4;
+        --light-cyan: #b2ebf2;
+        --section-bg-color: #f8f9fa;
+        --primary-yellow: #ffcb2a;
+        --primary-purple: #713f94;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        min-height: 100vh;
+      }
+      body {
+        background: linear-gradient(
+          135deg,
+          #e4ac53 40%,
+          #667eea 60%
+        ) !important;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .container {
+          margin-top: 0;
+        }
+      }
+
+      .container {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-top: 30px;
+        width: 100%;
+      }
+
+      /* استایل لوگوی بدون کادر دایره‌ای */
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .logo {
+        max-width: 400px; /* اندازه حداکثری لوگو */
+        height: auto;
+        display: block;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        border-bottom: 2px solid #4a6baf;
+        padding-bottom: 25px;
+        font-family: "farsi-bold";
+      }
+
+      .school-name {
+        color: #2c3e50;
+        font-size: 28px;
+        margin-bottom: 10px;
+        font-family: "farsi-bold";
+      }
+
+      .school-desc {
+        color: #4a6baf;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: "farsi-bold";
+      }
+
+      .info-section {
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        color: #2c3e50;
+        font-size: 20px;
+        margin-bottom: 15px;
+        padding-right: 10px;
+        border-right: 4px solid #4a6baf;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        font-family: "farsi-bold";
+      }
+
+      .contact-icon {
+        background-color: #4a6baf;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 15px;
+        font-weight: bold;
+      }
+
+      .contact-text {
+        font-size: 16px;
+      }
+
+      .link-item {
+        display: block;
+        background-color: #4a6baf;
+        color: white;
+        text-decoration: none;
+        font-family: "farsi-bold";
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        font-family: "farsi-bold";
+      }
+
+      .link-item:hover {
+        background-color: #3a5a9f;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .social-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f2f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+        font-weight: bold;
+        font-family: "farsi-bold";
+      }
+
+      .instagram-icon {
+        color: #e1306c;
+        margin-left: 10px;
+        font-size: 20px;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 40px;
+        color: #7f8c8d;
+        font-size: 14px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 20px;
+        }
+
+        .school-name {
+          font-size: 24px;
+        }
+
+        .contact-item {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .contact-icon {
+          margin-left: 0;
+          margin-bottom: 10px;
+        }
+
+        .logo {
+          max-width: 150px; /* اندازه کوچکتر برای موبایل */
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- لوگوی ساده در وسط -->
+      <div class="logo-container">
+        <img src="/project/images/IMG_0718.svg" alt="لوگوی مدرسه گویا" class="logo" />
+      </div>
+
+      <div class="header">
+        <h1 class="school-name">مجموعه مدارس غیردولتی پسرانه هوشمند گویا</h1>
+        <p class="school-desc">منطقه 7 (سهروردی شمالی)</p>
+      </div>
+
+      <div class="info-section">
+        <h2 class="section-title">اطلاعات تماس</h2>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="contact-text">دفتر مرکزی: <strong>02188533551</strong></div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="contact-text">
+            واحد ثبت نام: <strong>09924050308</strong>
+          </div>
+        </div>
+      </div>
+      <div class="info-section">
+        <h2 class="section-title">پیش ثبت نام</h2>
+
+        <a
+          href="https://formafzar.com/form/yr0hd"
+          class="link-item"
+          target="_blank"
+          style="background-color: #27ae60"
+        >
+          <i class="fas fa-clipboard-list"></i> لینک پیش ثبت نام <br>( با فیلتر شکن
+          خاموش کلیک کنید)
+        </a>
+
+        <div
+          style="
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #555;
+          "
+        >
+          <div class="info-section">
+            <h2 class="section-title">سایت مدرسه</h2>
+
+            <a
+              href="http://www.gouyaschool.com"
+              class="link-item"
+              target="_blank"
+            >
+              <i class="fas fa-globe"></i> بازدید از سایت مدرسه:
+              www.gouyaschool.com
+            </a>
+          </div>
+
+          <div class="info-section">
+            <h2 class="section-title">شبکه‌های اجتماعی</h2>
+
+            <div class="social-item">
+              <i class="fab fa-instagram instagram-icon"></i>
+              <a
+                href="https://www.instagram.com/gouya_school?igsh=Z2NibHo4Y295cGE1"
+                ><span>اینستاگرام: <strong>gouya_school</strong></span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>مجموعه مدارس غیردولتی پسرانه تمام هوشمند گویا</p>
+        <p>Powered by Gouya</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "tamom-goya",
+  "version": "1.0.0",
+  "description": "مدارس هوشمند گویا - Node.js backend",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "export:excel": "node scripts/export-registrations.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "express": "^4.21.0",
+    "xlsx": "^0.18.5"
+  }
+}

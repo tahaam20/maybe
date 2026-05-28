@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/project/styles/app.css">
+    <link rel="stylesheet" href="/project/styles/gallery.css">
+    <link rel="stylesheet" href="/project/styles/responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="icon" href="/project/images/IMG_0717.svg">
+    <title>گالری - مدرسه گویا</title>
+    
+    <style>
+        /* استایل‌های اختصاصی گالری */
+      
+    </style>
+</head>
+<body>
+    <!-- دکوریشن‌های پس‌زمینه -->
+    <div class="global-decoration">
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+    </div>
+    
+    <!-- هدر -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container nav-container">
+                <a href="#" class="app-logo">
+                    <img src="/project/images/IMG_0718.svg" alt="لوگو" class="app-logo_Img" />
+                </a>
+                <ul class="menu">
+                    <li><a href="/index.html">صفحه نخست</a></li>
+
+                    <li class="menu-item dropdown">
+                        <a href="#">مقاطع تحصیلی
+                            <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">پیش‌دبستانی</a></li>
+                            <li><a href="#">ابتدایی</a></li>
+                            <li><a href="#">متوسطه اول</a></li>
+                            <li><a href="#">متوسطه دوم</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/project/services.html">امکانات اموزشی</a></li>
+                    <li><a href="/project/blog.html">اخبار</a></li>
+                    <li class="menu-item dropdown">
+                        <a href="#">ارتباط با ما
+                            
+                        </a>
+                        
+                    </li>
+                </ul>
+                <div class="register">
+                    <a href="/project/deepseek_html_20251120_567cbd.html"><p class="text-register">پیش ثبت نام</p></a> 
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- محتوای اصلی گالری -->
+    <main>
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="gallery-head">گالری تصاویر مدرسه گویا</h2>
+                
+                <!-- فیلتر دسته‌بندی‌ها -->
+                <div class="gallery-filter">
+                    <button class="filter-btn active" data-filter="all">همه</button>
+                    <button class="filter-btn" data-filter="events">رویدادها</button>
+                    <button class="filter-btn" data-filter="classes">کلاس‌ها</button>
+                    <button class="filter-btn" data-filter="sports">ورزشی</button>
+                    <button class="filter-btn" data-filter="art">هنری</button>
+                    <button class="filter-btn" data-filter="science">علمی</button>
+                </div>
+                
+                <!-- شبکه گالری -->
+                <div class="gallery-grid">
+                    <!-- تصاویر گالری -->
+                    <div class="gallery-item" data-category="events">
+                        <img src="/project/images/gallery/event1.jpg" alt="جشن آغاز سال تحصیلی">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">جشن آغاز سال تحصیلی</h3>
+                            <p class="gallery-category">رویدادها</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="classes">
+                        <img src="/project/images/gallery/class1.jpg" alt="کلاس علوم">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">آزمایشگاه علوم</h3>
+                            <p class="gallery-category">کلاس‌ها</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="sports">
+                        <img src="/project/images/gallery/sport1.jpg" alt="مسابقات ورزشی">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">مسابقات فوتبال</h3>
+                            <p class="gallery-category">ورزشی</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="art">
+                        <img src="/project/images/gallery/art1.jpg" alt="نمایشگاه هنری">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">نمایشگاه آثار هنری</h3>
+                            <p class="gallery-category">هنری</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="science">
+                        <img src="/project/images/gallery/science1.jpg" alt="مسابقات علمی">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">مسابقه رباتیک</h3>
+                            <p class="gallery-category">علمی</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="events">
+                        <img src="/project/images/gallery/event2.jpg" alt="مراسم تقدیر">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">مراسم تقدیر از دانش‌آموزان برتر</h3>
+                            <p class="gallery-category">رویدادها</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="classes">
+                        <img src="/project/images/gallery/class2.jpg" alt="کلاس کامپیوتر">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">آموزش برنامه‌نویسی</h3>
+                            <p class="gallery-category">کلاس‌ها</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="sports">
+                        <img src="/project/images/gallery/sport2.jpg" alt="والیبال">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">کلاس والیبال</h3>
+                            <p class="gallery-category">ورزشی</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="art">
+                        <img src="/project/images/gallery/art2.jpg" alt="تئاتر مدرسه">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">نمایش تئاتر دانش‌آموزی</h3>
+                            <p class="gallery-category">هنری</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="science">
+                        <img src="/project/images/1.jpg" alt="آزمایشگاه">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">آزمایش شیمی</h3>
+                            <p class="gallery-category">علمی</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="events">
+                        <img src="/project/images/gallery/event3.jpg" alt="اردوی علمی">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">اردوی علمی</h3>
+                            <p class="gallery-category">رویدادها</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="classes">
+                        <img src="/project/images/gallery/class3.jpg" alt="کتابخانه">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">کتابخانه مدرسه</h3>
+                            <p class="gallery-category">کلاس‌ها</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- مودال نمایش تصویر بزرگ -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img src="" alt="تصویر بزرگ">
+            <div class="modal-nav modal-prev">&#10094;</div>
+            <div class="modal-nav modal-next">&#10095;</div>
+        </div>
+    </div>
+    
+    <!-- فوتر -->
+    <footer class="footer">
+  <!-- بخش بالایی فوتر با افکت موجی -->
+  <div class="footer-top-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
+    </svg>
+  </div>
+
+  <div class="footer-container">
+    <!-- ستون لوگو و توضیحات -->
+    <div class="footer-col about">
+      <div class="footer-logo">
+        <img src="/project/images/IMG_0718.svg" alt="لوگوی مدرسه گویا">
+        <h3>مجتمع آموزشی گویا</h3>
+      </div>
+      <p class="footer-description">
+        مدرسه بین‌المللی گویا با بیش از ۳۳ سال تجربه درخشان در آموزش بین‌المللی، پذیرای دانش‌آموزان از پیش‌دبستانی تا پایان دبیرستان است.
+      </p>
+      <div class="footer-certificates">
+        <span class="certificate-badge">مجوز رسمی آموزش و پرورش</span>
+        <span class="certificate-badge">مدرسه بین‌المللی</span>
+      </div>
+    </div>
+
+    <!-- ستون دسترسی سریع -->
+    <div class="footer-col links">
+      <h3 class="footer-title">دسترسی سریع</h3>
+      <ul>
+        <li><a href="#"><span class="link-icon">🏠</span> صفحه اصلی</a></li>
+        <li><a href="/project/services.html"><span class="link-icon">🎓</span> مقاطع تحصیلی</a></li>
+        <li><a href="/project/services.html"><span class="link-icon">⚙️</span> سرویس‌ها</a></li>
+        <li><a href="/project/gallery.html"><span class="link-icon">📷</span> گالری</a></li>
+        <li><a href="/project/blog.html"><span class="link-icon">📝</span> بلاگ</a></li>
+        <li><a href="/project/register.html"><span class="link-icon">📋</span> پیش ثبت نام</a></li>
+      </ul>
+    </div>
+
+    <!-- ستون ارتباط با ما -->
+    <div class="footer-col contact">
+      <h3 class="footer-title">ارتباط با ما</h3>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-icon">📍</span>
+          <div>
+            <strong>شعبه ۱ (واحد اداری)</strong>
+            <p>تهران، فرمانیه، خیابان لواسانی، کوچه پورهاشمی، پلاک ۱/۱</p>
+          </div>
+        </li>
+        <li>
+          <span class="contact-icon">📍</span>
+          <div>
+            <strong>شعبه ۲ (پیش‌دبستان)</strong>
+            <p>تهران، منطقه‌ی ۱، نیاوران، کوچه منیعی، پلاک شش</p>
+          </div>
+        </li>
+        <li>
+          <span class="contact-icon">📍</span>
+          <div>
+            <strong>شعبه ۳ (همه مقاطع دختران)</strong>
+            <p>تهران، نیاوران، خیابان آقایی، پلاک ۳۲</p>
+          </div>
+        </li>
+      </ul>
+      
+      <div class="contact-info">
+        <p><span class="contact-icon">📞</span> تلفن: <a href="tel:02179996">۰۲۱-۷۹۹۹۶</a></p>
+        <p><span class="contact-icon">📱</span> روابط عمومی: <a href="tel:091279996">۰۹۱۲-۷۹۹۹۶</a></p>
+        <p><span class="contact-icon">✉️</span> ایمیل: <a href="mailto:info@gouya.school">info@gouya.school</a></p>
+      </div>
+    </div>
+
+    <!-- ستون شبکه‌های اجتماعی -->
+    <div class="footer-col social">
+      <h3 class="footer-title">شبکه‌های اجتماعی</h3>
+      <p class="social-description">ما را در شبکه‌های اجتماعی دنبال کنید و از آخرین اخبار مدرسه مطلع شوید.</p>
+      
+      <div class="social-grid">
+        <a href="#" class="social-link instagram" aria-label="اینستاگرام">
+          <img src="/project/images/icon/Instagram_icon.png" alt="اینستاگرام">
+          <span>اینستاگرام</span>
+        </a>
+        <a href="#" class="social-link linkedin" aria-label="لینکدین">
+          <img src="/project/images/icon/linkedin-logo-linkedin-icon-transparent-free-png.webp" alt="لینکدین">
+          <span>لینکدین</span>
+        </a>
+        <a href="#" class="social-link telegram" aria-label="تلگرام">
+          <img src="/project/images/icon/Telegram_logo.svg.webp" alt="تلگرام">
+          <span>تلگرام</span>
+        </a>
+        <a href="#" class="social-link whatsapp" aria-label="واتساپ">
+          <img src="/project/images/icon/WhatsApp.svg.webp" alt="واتساپ">
+          <span>واتساپ</span>
+        </a>
+        <a href="#" class="social-link youtube" aria-label="یوتیوب">
+          <img src="/project/images/icon/YouTube_full-color_icon_(2017).svg.webp" alt="یوتیوب">
+          <span>یوتیوب</span>
+        </a>
+        <a href="#" class="social-link aparat" aria-label="آپارات">
+          <img src="/project/images/IMG_0717.PNG" alt="آپارات">
+          <span>آپارات</span>
+        </a>
+      </div>
+      
+      <!-- خبرنامه -->
+      <div class="newsletter">
+        <h4>عضویت در خبرنامه</h4>
+        <p>برای دریافت اخبار و اطلاعیه‌ها ایمیل خود را وارد کنید.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="آدرس ایمیل شما" required>
+          <button type="submit">عضویت</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- بخش پایینی فوتر -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-container">
+      <div class="copyright">
+        <p>© کلیه حقوق این وبسایت متعلق به <strong>مجتمع آموزشی بین‌المللی گویا</strong> می‌باشد. ۱۴۰۳</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">حریم خصوصی</a>
+        <a href="#">قوانین و مقررات</a>
+        <a href="#">سوالات متداول</a>
+        <a href="#">نقشه سایت</a>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+    <script>
+        // فیلتر گالری
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const modalOverlay = document.querySelector('.modal-overlay');
+            const modalImg = document.querySelector('.modal-content img');
+            const modalClose = document.querySelector('.modal-close');
+            const modalPrev = document.querySelector('.modal-prev');
+            const modalNext = document.querySelector('.modal-next');
+            
+            let currentIndex = 0;
+            let filteredItems = [];
+            
+            // فیلتر تصاویر
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // حذف کلاس active از همه دکمه‌ها
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // اضافه کردن کلاس active به دکمه کلیک شده
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // باز کردن مودال با کلیک روی تصویر
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.querySelector('img').getAttribute('src');
+                    modalImg.setAttribute('src', imgSrc);
+                    modalOverlay.classList.add('active');
+                    
+                    // ذخیره لیست تصاویر فیلتر شده
+                    const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+                    filteredItems = [];
+                    
+                    galleryItems.forEach((imgItem, idx) => {
+                        if (activeFilter === 'all' || imgItem.getAttribute('data-category') === activeFilter) {
+                            if (imgItem.style.display !== 'none') {
+                                filteredItems.push(idx);
+                            }
+                        }
+                    });
+                    
+                    // پیدا کردن ایندکس تصویر فعلی در لیست فیلتر شده
+                    currentIndex = filteredItems.indexOf(index);
+                });
+            });
+            
+            // بستن مودال
+            modalClose.addEventListener('click', function() {
+                modalOverlay.classList.remove('active');
+            });
+            
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === modalOverlay) {
+                    modalOverlay.classList.remove('active');
+                }
+            });
+            
+            // پیمایش تصاویر در مودال
+            modalPrev.addEventListener('click', function() {
+                if (filteredItems.length > 0) {
+                    currentIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
+                    const imgIndex = filteredItems[currentIndex];
+                    const imgSrc = galleryItems[imgIndex].querySelector('img').getAttribute('src');
+                    modalImg.setAttribute('src', imgSrc);
+                }
+            });
+            
+            modalNext.addEventListener('click', function() {
+                if (filteredItems.length > 0) {
+                    currentIndex = (currentIndex + 1) % filteredItems.length;
+                    const imgIndex = filteredItems[currentIndex];
+                    const imgSrc = galleryItems[imgIndex].querySelector('img').getAttribute('src');
+                    modalImg.setAttribute('src', imgSrc);
+                }
+            });
+            
+            // پیمایش با کلیدهای کیبورد
+            document.addEventListener('keydown', function(e) {
+                if (modalOverlay.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        modalOverlay.classList.remove('active');
+                    } else if (e.key === 'ArrowRight') {
+                        modalNext.click();
+                    } else if (e.key === 'ArrowLeft') {
+                        modalPrev.click();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

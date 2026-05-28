@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- لینک‌های اصلی پروژه (همانند صفحه اصلی) -->
+    <link rel="stylesheet" href="/project/styles/app.css">
+    <link rel="stylesheet" href="/project/styles/responsivce.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/project/images/circle-gouya.png">
+    <title>افتخارات | مدارس هوشمند گویا</title>
+    <!-- استایل‌های اضافی برای گالری و لایت‌باکس (با حفظ تم اصلی) -->
+    <style>
+        /* استایل‌های موجود در صفحه اصلی (برای اطمینان از نمایش صحیح منو و فوتر) */
+        canvas {
+            margin-top: 3rem;
+            display: block;
+            z-index: -1000;
+        }
+        /* استایل‌های گالری افتخارات */
+        .honors-section {
+            padding: 4rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        .honors-title {
+            font-size: 2.8rem;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            font-family: "farsi-bold", "IRANSans", "Tahoma", sans-serif;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .honors-title::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #FFEB3B, #FF9800, #9C27B0);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+        .honors-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.8rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .honor-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .honor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: rgba(255,203,42,0.5);
+        }
+        .honor-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 2px solid rgba(113,63,148,0.3);
+        }
+        .honor-caption {
+            padding: 1rem;
+            text-align: center;
+            font-family: "farsi-medium", "IRANSans", "Tahoma", sans-serif;
+            color: white;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, rgba(113,63,148,0.9), rgba(0,0,0,0.5));
+        }
+        /* لایت‌باکس */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 85vh;
+        }
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 10px;
+            border: 3px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .lightbox-caption {
+            color: white;
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            background: rgba(113,63,148,0.7);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-family: "farsi-bold", "IRANSans", "Tahoma", sans-serif;
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 2010;
+        }
+        .lightbox-nav:hover {
+            background: rgba(255,203,42,0.8);
+            color: #333;
+        }
+        .lightbox-nav.prev {
+            right: 20px;
+        }
+        .lightbox-nav.next {
+            left: 20px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 2020;
+        }
+        .lightbox-close:hover {
+            background: #ff4444;
+        }
+        .lightbox-counter {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            color: white;
+            background: rgba(0,0,0,0.6);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-family: "farsi-medium", "IRANSans", "Tahoma", sans-serif;
+            font-size: 1rem;
+        }
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+            .lightbox-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+                top: 10px;
+                left: 15px;
+            }
+            .honors-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- دایره‌های تزئینی (مثل صفحه اصلی) -->
+    <div class="global-decoration">
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+    </div>
+
+    <!-- هدر (دقیقاً مشابه صفحه اصلی) -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container nav-container">
+                <!-- دکمه همبرگری -->
+                <button class="hamburger-menu" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- لوگو -->
+                <a href="#" class="app-logo">
+                    <img src="/project/images/IMG_0718.svg" alt="لوگوی مدرسه گویا" class="app-logo_Img">
+                </a>
+                
+                <!-- منوی دسکتاپ -->
+                <ul class="menu">
+                    <li class="menu-item dropdown">
+                        <a href="#">مقاطع تحصیلی
+                            <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">پیش‌دبستانی</a></li>
+                            <li><a href="#">ابتدایی</a></li>
+                            <li><a href="#">متوسطه اول</a></li>
+                            <li><a href="#">متوسطه دوم</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="active">افتخارات</a></li>
+                    <li><a href="/project/services.html">امکانات آموزشی</a></li>
+                    <li><a href="/project/blog.html">اخبار</a></li>
+                    <li class="menu-item dropdown">
+                        <a href="#contact-footer" data-scroll-to="contact-footer">ارتباط با ما</a>
+                    </li>
+                </ul>
+
+                <!-- دکمه پیش ثبت نام -->
+                <div class="register">
+                    <a href="https://formafzar.com/form/yr0hd">
+                        <p class="text-register">پیش ثبت نام</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- اوورلی منوی موبایل -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+        
+        <!-- منوی موبایل -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <img src="/project/images/circle-gouya.png" alt="لوگو" class="mobile-logo">
+                <h3>مجموعه مدارس هوشمند پسرانه گویا</h3>
+            </div>
+            <ul>
+                <li class="mobile-menu-item">
+                    <a href="#" class="mobile-dropdown-toggle">
+                        <span>مقاطع تحصیلی</span>
+                        <svg class="mobile-chevron" width="16" height="16" viewBox="0 0 16 16">
+                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="#">پیش‌دبستانی</a></li>
+                        <li><a href="#">ابتدایی</a></li>
+                        <li><a href="#">متوسطه اول</a></li>
+                        <li><a href="#">متوسطه دوم</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="active">افتخارات</a></li>
+                <li><a href="#">امکانات آموزشی</a></li>
+                <li><a href="#">اخبار</a></li>
+                <li class="mobile-menu-item">
+                    <a href="#contact-footer" class="mobile-dropdown-toggle">
+                        <span>ارتباط با ما</span>
+                    </a>
+                </li>
+                <li><a href="https://formafzar.com/form/yr0hd" class="mobile-register-btn">پیش ثبت نام</a></li>
+            </ul>
+        </div>
+
+        
+    </header>
+
+    <!-- محتوای اصلی: صفحه افتخارات -->
+    <main>
+        <!-- پس‌زمینه موج‌ها (مثل صفحه اصلی) -->
+        <canvas id="waves"></canvas>
+
+        <!-- بخش گالری افتخارات -->
+        <section class="honors-section">
+            <div class="container">
+                <h1 class="honors-title">تابلوهای افتخارات گویا</h1>
+                <div class="honors-gallery" id="honorsGallery"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- فوتر (دقیقاً مشابه صفحه اصلی) -->
+    <footer class="footer" id="contact-footer">
+        <!-- موج بالای فوتر -->
+        <div class="footer-top-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#e4ac53;stop-opacity:1"></stop>
+                        <stop offset="100%" style="stop-color:#667eea;stop-opacity:1"></stop>
+                    </linearGradient>
+                </defs>
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="url(#waveGradient)"></path>
+            </svg>
+        </div>
+
+        <div class="footer-container">
+            <!-- ستون درباره ما -->
+            <div class="footer-col about">
+                <div class="footer-logo">
+                    <img src="/project/images/IMG_0717.svg" alt="لوگوی مدرسه گویا">
+                    <h3>مجتمع آموزشی گویا</h3>
+                </div>
+                <p class="footer-description">
+                    مدرسه گویا با بیش از ۳۰ سال تجربه درخشان در آموزش بین‌المللی، پذیرای دانش‌آموزان از پیش‌دبستانی تا دیپلم است.
+                </p>
+                <div class="footer-certificates">
+                    <span class="certificate-badge">مجوز رسمی آموزش و پرورش</span>
+                    <span class="certificate-badge">مدرسه هوشمند</span>
+                </div>
+            </div>
+
+            <!-- ستون لینک‌های سریع -->
+            <div class="footer-col links">
+                <h3 class="footer-title">دسترسی سریع</h3>
+                <ul>
+                    <li><a href="#"><span class="link-icon">🏠</span> صفحه اصلی</a></li>
+                    <li><a href="#"><span class="link-icon">🎓</span> مقاطع تحصیلی</a></li>
+                    <li><a href="/project/services.html"><span class="link-icon">⚙️</span> سرویس‌ها</a></li>
+                    <li><a href="/project/blog.html"><span class="link-icon">📝</span> بلاگ</a></li>
+                    <li><a href="https://formafzar.com/form/yr0hd"><span class="link-icon">📋</span> پیش ثبت نام</a></li>
+                </ul>
+            </div>
+
+            <!-- ستون ارتباط با ما -->
+            <div class="footer-col contact">
+                <h3 class="footer-title">ارتباط با ما</h3>
+                <ul class="contact-list">
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>پیش دبستان و دبستان(دوره اول) گویا</strong>
+                            <p>خیابان شریعتی، نرسیده به سیدخندان، کوچه موزه(بسطامی)، پلاک3<br>02188513559-02188519494</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>دبستان(دوره دوم) گویا</strong>
+                            <p>خیابان شریعتی، نرسیده به سیدخندان، کوچه موزه(بسطامی)، پلاک7<br>02188179085-02188759034</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>متوسطه دوره اول گویا</strong>
+                            <p>خیابان سهروردی شمالی، خیابان قندی، نبش کوچه سوم<br>02188767596-02188767597</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>متوسطه دوره دوم گویا</strong>
+                            <p>خیابان شریعتی، خیابان هویزه شرقی، پلاک11<br>02188175899-02188175894</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="contact-info">
+                    <p><span class="contact-icon">📞</span>دفتر مرکزی: <a href="tel:02188513559">02188513559</a></p>
+                    <p><span class="contact-icon">✉️</span> ایمیل: <a href="mailto:info@gouya.school">info@gouya.school</a></p>
+                </div>
+            </div>
+
+            <!-- ستون شبکه‌های اجتماعی -->
+            <div class="footer-col social">
+                <h3 class="footer-title">شبکه‌های اجتماعی</h3>
+                <p class="social-description">ما را در شبکه‌های اجتماعی دنبال کنید و از آخرین اخبار مدرسه مطلع شوید.</p>
+                
+                <div class="social-grid">
+                    <a href="https://www.instagram.com/gouya_school?igsh=Z2NibHo4Y295cGE1" class="social-link instagram" aria-label="اینستاگرام">
+                        <img src="/project/images/icon/Instagram_icon.png" alt="اینستاگرام">
+                        <span>اینستاگرام</span>
+                    </a>
+                    <a href="https://t.me/gouyacomplexschool" class="social-link telegram" aria-label="تلگرام">
+                        <img src="/project/images/icon/Telegram_logo.svg.webp" alt="تلگرام">
+                        <span>تلگرام</span>
+                    </a>
+                    <a href="https://wa.me/qr/L5YTZOTLUS4TO1" class="social-link whatsapp" aria-label="واتساپ">
+                        <img src="/project/images/icon/WhatsApp.svg.webp" alt="واتساپ">
+                        <span>واتساپ</span>
+                    </a>
+                    <a href="https://www.aparat.com/gouyaschool" class="social-link aparat" aria-label="آپارات">
+                        <img src="/project/images/circle-gouya.png" alt="آپارات">
+                        <span>آپارات</span>
+                    </a>
+                </div>
+                
+                <!-- خبرنامه -->
+                <div class="newsletter">
+                    <h4>عضویت در خبرنامه</h4>
+                    <p>برای دریافت اخبار و اطلاعیه‌ها ایمیل خود را وارد کنید.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="آدرس ایمیل شما" required>
+                        <button type="submit">عضویت</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!--底部 کپی رایت -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    <p>© کلیه حقوق این وبسایت متعلق به <strong>مجموعه آموزشی گویا</strong> می‌باشد. ۱۴۰۴</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">حریم خصوصی</a>
+                    <a href="#">قوانین و مقررات</a>
+                    <a href="#">سوالات متداول</a>
+                    <a href="#">نقشه سایت</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- لایت‌باکس (مخفی در ابتدا) -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav prev" id="lightboxPrev"><i class="fas fa-chevron-right"></i></button>
+        <button class="lightbox-nav next" id="lightboxNext"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img class="lightbox-image" id="lightboxImage" src="" alt="">
+        </div>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <!-- اسکریپت‌ها -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> <!-- در صورت نیاز -->
+    <script>
+       // ================== داده‌های افتخارات (۱۵ تصویر) ==================
+// مسیر تصاویر خود را در اینجا وارد کنید
+// ساختار: { title: 'عنوان تابلو', thumb: 'مسیر تصویر کوچک', large: 'مسیر تصویر بزرگ' }
+const honorsData = [
+    { title: 'عنوان تابلو ۱', thumb: '/project/images/champ/IMG_2808.JPG', large: '/project/images/champ/IMG_2808.JPG' },
+    { title: 'عنوان تابلو ۲', thumb: '/project/images/champ/IMG_2809.JPG', large: '/project/images/champ/IMG_2809.JPG' },
+    { title: 'عنوان تابلو ۴', thumb: '/project/images/champ/IMG_2811.JPG', large: '/project/images/champ/IMG_2811.JPG' },
+    { title: 'عنوان تابلو ۵', thumb: '/project/images/champ/IMG_2812.JPG', large: '/project/images/champ/IMG_2812.JPG' },
+    { title: 'عنوان تابلو ۶', thumb: '/project/images/champ/IMG_2813.JPG', large: '/project/images/champ/IMG_2813.JPG' },
+    { title: 'عنوان تابلو ۷', thumb: '/project/images/champ/IMG_2814.JPG', large: '/project/images/champ/IMG_2814.JPG' },
+    { title: 'عنوان تابلو ۸', thumb: '/project/images/champ/IMG_2815.JPG', large: '/project/images/champ/IMG_2815.JPG' },
+    { title: 'عنوان تابلو ۱۰', thumb: '/project/images/champ/IMG_2817.JPG', large: '/project/images/champ/IMG_2817.JPG' },
+    { title: 'عنوان تابلو ۱۱', thumb: '/project/images/champ/IMG_2818.JPG', large: '/project/images/champ/IMG_2818.JPG' },
+    { title: 'عنوان تابلو ۱۲', thumb: '/project/images/champ/IMG_2819.JPG', large: '/project/images/champ/IMG_2819.JPG' },
+    { title: 'عنوان تابلو ۱۳', thumb: '/project/images/champ/IMG_2820.JPG', large: '/project/images/champ/IMG_2820.JPG' },
+    { title: 'عنوان تابلو ۱۴', thumb: '/project/images/champ/IMG_2821.JPG', large: '/project/images/champ/IMG_2821.JPG' },
+];
+
+// ================== عناصر DOM ==================
+const gallery = document.getElementById('honorsGallery');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxCounter = document.getElementById('lightboxCounter');
+const closeBtn = document.getElementById('lightboxClose');
+const prevBtn = document.getElementById('lightboxPrev');
+const nextBtn = document.getElementById('lightboxNext');
+
+let currentIndex = 0;
+let images = [];
+
+// ================== ساخت گالری ==================
+function buildGallery() {
+    honorsData.forEach((item, index) => {
+        const thumbUrl = item.thumb;
+        const largeUrl = item.large;
+        images.push({ thumb: thumbUrl, large: largeUrl, title: item.title });
+
+        const card = document.createElement('div');
+        card.className = 'honor-card';
+        card.dataset.index = index;
+
+        const img = document.createElement('img');
+        img.src = thumbUrl;
+        img.alt = item.title;
+        img.loading = 'lazy';
+
+        const caption = document.createElement('div');
+        caption.className = 'honor-caption';
+        caption.textContent = item.title;
+
+        card.appendChild(img);
+        card.appendChild(caption);
+
+        card.addEventListener('click', () => openLightbox(index));
+
+        gallery.appendChild(card);
+    });
+}
+
+// ================== توابع لایت‌باکس ==================
+function openLightbox(index) {
+    currentIndex = index;
+    updateLightbox();
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function updateLightbox() {
+    const item = images[currentIndex];
+    lightboxImage.src = item.large;
+    lightboxImage.alt = item.title;
+    lightboxCaption.textContent = item.title;
+    lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+}
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateLightbox();
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateLightbox();
+}
+
+// رویدادهای لایت‌باکس
+closeBtn.addEventListener('click', closeLightbox);
+prevBtn.addEventListener('click', prevImage);
+nextBtn.addEventListener('click', nextImage);
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();   // در RTL فلش راست یعنی بعدی
+    if (e.key === 'ArrowLeft') prevImage();
+});
+
+// ================== اسکریپت‌های منوی موبایل ==================
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hamburgerBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+}
+
+if (menuOverlay) {
+    menuOverlay.addEventListener('click', () => {
+        hamburgerBtn?.classList.remove('active');
+        mobileMenu?.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+}
+
+mobileDropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const parent = toggle.closest('.mobile-menu-item');
+        const dropdown = parent.querySelector('.mobile-dropdown');
+        const chevron = toggle.querySelector('.mobile-chevron');
+        
+        document.querySelectorAll('.mobile-dropdown').forEach(d => {
+            if (d !== dropdown && d.classList.contains('active')) {
+                d.classList.remove('active');
+                const otherChevron = d.closest('.mobile-menu-item')?.querySelector('.mobile-chevron');
+                if (otherChevron) otherChevron.style.transform = 'rotate(0deg)';
+            }
+        });
+        
+        dropdown.classList.toggle('active');
+        if (chevron) {
+            chevron.style.transform = dropdown.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+    });
+});
+
+// بستن منو با کلیک روی لینک‌ها
+document.querySelectorAll('.mobile-menu a:not(.mobile-dropdown-toggle)').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburgerBtn?.classList.remove('active');
+        mobileMenu?.classList.remove('active');
+        menuOverlay?.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
+
+// ================== اسکریپت موج‌ها (waves) ==================
+const canvas = document.getElementById('waves');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const colors = [
+        'rgba(255, 203, 42, 0.2)',
+        'rgba(113, 63, 148, 0.2)',
+        'rgba(255, 203, 42, 0.15)',
+        'rgba(113, 63, 148, 0.15)',
+        'rgba(255, 203, 42, 0.1)',
+        'rgba(113, 63, 148, 0.1)'
+    ];
+
+    class Wave {
+        constructor(y, amplitude, wavelength, speed, color) {
+            this.y = y;
+            this.amplitude = amplitude;
+            this.wavelength = wavelength;
+            this.speed = speed;
+            this.color = color;
+            this.offset = Math.random() * 1000;
+        }
+        draw(t) {
+            ctx.beginPath();
+            ctx.moveTo(0, this.y);
+            for (let x = 0; x <= canvas.width; x += 10) {
+                const y = this.y + Math.sin((x + t * this.speed + this.offset) / this.wavelength) * this.amplitude;
+                ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = this.color;
+            ctx.lineWidth = 3;
+            ctx.stroke();
+        }
+    }
+
+    const waves = [];
+    for (let i = 0; i < colors.length; i++) {
+        waves.push(
+            new Wave(
+                canvas.height * (0.15 + i * 0.12),
+                25 + i * 3,
+                120 + i * 10,
+                0.15,
+                colors[i]
+            )
+        );
+    }
+
+    function animate(t) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        waves.forEach(w => w.draw(t));
+        requestAnimationFrame(animate);
+    }
+    animate(0);
+}
+
+// ================== اجرای ساخت گالری ==================
+buildGallery();
+
+// ================== اسکرول نرم به فوتر ==================
+document.querySelectorAll('a[href="#contact-footer"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('contact-footer')?.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+    </script>
+    <!-- Font Awesome (برای آیکون‌های لایت‌باکس) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</body>
+</html>

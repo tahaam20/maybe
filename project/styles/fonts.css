@@ -1,0 +1,20 @@
+@font-face {
+    font-family:"farsi-black" ;
+    src: url(/fonts-farsi/IRANSans-Black\ [@ClubEdits].ttf);
+}
+@font-face {
+    font-family: "farsi-bold";
+    src: url(/fonts-farsi/IRANSans-Bold\ [@ClubEdits].ttf);
+}
+@font-face {
+    font-family: "farsi-light";
+    src: url(/fonts-farsi/IRANSans-Light\ [@ClubEdits].ttf);
+}
+@font-face {
+    font-family: "farsi-medium";
+    src: url(/fonts-farsi/IRANSans-Medium\ [@ClubEdits].ttf);
+}
+@font-face {
+    font-family: "farsi-ultraLight";
+    src: url(/fonts-farsi/IRANSans-UltraLight\ [@ClubEdits].ttf);
+}

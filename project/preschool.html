@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/project/styles/app.css">
+    <link rel="stylesheet" href="/project/styles/pre-school.css">
+    <link rel="stylesheet" href="/project/styles/responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/project/images/IMG_0717.svg">
+    <title>مقطع پیش دبستانی - مدرسه گویا</title>
+    
+    
+</head>
+<body>
+    <!-- Decoration Circles -->
+    <div class="global-decoration">
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container nav-container">
+                <!-- Hamburger Button -->
+                <button class="hamburger-menu" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Logo -->
+                <a href="/project/index.html" class="app-logo">
+                    <img src="/project/images/IMG_0718.webp" alt="لوگوی مدرسه گویا" class="app-logo_Img">
+                </a>
+                
+                <!-- Desktop Menu -->
+                <ul class="menu">
+                    <li class="menu-item dropdown">
+                        <a href="#">مقاطع تحصیلی
+                            <svg class="chevron-down" xmlns="http://www.w3.org2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/project/preschool.html">پیش‌دبستانی</a></li>
+                            <li><a href="/project/elementary.html">ابتدایی</a></li>
+                            <li><a href="/project/middle-school.html">متوسطه اول</a></li>
+                            <li><a href="/project/high-school.html">متوسطه دوم</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/project/index.html#honors">افتخارات</a></li>
+                    <li><a href="/project/services.html">امکانات اموزشی</a></li>
+                    <li><a href="/project/blog.html">اخبار</a></li>
+                    <li><a href="/project/contact.html">ارتباط با ما</a></li>
+                </ul>
+
+                <!-- Register Button -->
+                <div class="register">
+                    <a href="/project/register.html">
+                        <p class="text-register">پیش ثبت نام</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <img src="/project/images/circle-gouya.webp" alt="لوگو" class="mobile-logo">
+                <h3>مدرسه  گویا</h3>
+            </div>
+            <ul>
+                <li class="mobile-menu-item">
+                    <a href="#" class="mobile-dropdown-toggle">
+                        <span>مقاطع تحصیلی</span>
+                        <svg class="mobile-chevron" width="16" height="16" viewBox="0 0 16 16">
+                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="/project/preschool.html">پیش‌دبستانی</a></li>
+                        <li><a href="/project/elementary.html">ابتدایی</a></li>
+                        <li><a href="/project/middle-school.html">متوسطه اول</a></li>
+                        <li><a href="/project/high-school.html">متوسطه دوم</a></li>
+                    </ul>
+                </li>
+                <li><a href="/project/index.html#honors">افتخارات </a></li>
+                <li><a href="/project/services.html">امکانات اموزشی</a></li>
+                <li><a href="/project/gallery.html">گالری</a></li>
+                <li><a href="/project/blog.html">اخبار</a></li>
+                <li><a href="/project/contact.html">ارتباط با ما</a></li>
+                <li><a href="/project/register.html" class="mobile-register-btn">پیش ثبت نام</a></li>
+            </ul>
+        </div>
+        
+        <!-- Hero Section for Grade -->
+        <div class="grade-hero">
+            <div class="container">
+                <div class="grade-header">
+                    <div class="grade-icon">
+                        <img src="/project/images/IMG_0717.webp" alt="آیکون ابتدایی">
+                    </div>
+                    <h2 class="grid-head">مقطع پیش دبستانی</h2>
+                    <p class="grade-subtitle">
+                        پرورش تفکر خلاق و تقویت مهارت‌های پایه در فضایی شاد و ایمن برای دانش‌آموزان دوره پیش دبستانی
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Waves Background -->
+        <canvas id="waves"></canvas>
+        
+        <!-- بخش معرفی مقطع -->
+        <section class="grade-content ">
+            <div class="container  skew-reset">
+                <h2 class="grid-head">ویژگی‌های مقطع پیش دبستانی</h2>
+                <div class="grade-features">
+                    <div class="feature-card">
+                        <h3>
+                            <img src="/project/images/icon/plan1.png" alt="آموزش">
+                            برنامه درسی منحصر به فرد
+                        </h3>
+                        <p>
+                            برنامه‌ای تلفیقی از دروس ملی و بین‌المللی با تأکید بر تفکر انتقادی و حل مسئله
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>
+                            <img src="/project/images/icon/class.webp" alt="کلاس">
+                            کلاس‌های با ظرفیت محدود
+                        </h3>
+                        <p>
+                            کلاس‌های ۱۵ نفره برای توجه شخصی به هر دانش‌آموز و بهبود کیفیت یادگیری
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>
+                            <img src="/project/images/icon/active.svg" alt="فعالیت">
+                            فعالیت‌های فوق برنامه
+                        </h3>
+                        <p>
+                            کارگاه‌های هنری، ورزشی، رباتیک و زبان‌های خارجی برای رشد همه‌جانبه
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+        
+        
+    </main>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="تصویر بزرگ">
+            <div class="lightbox-nav">
+                <button class="lightbox-btn" onclick="prevImage()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="lightbox-btn" onclick="nextImage()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer Wave -->
+        <div class="footer-top-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#e4ac53;stop-opacity:1"></stop>
+                        <stop offset="100%" style="stop-color:#667eea;stop-opacity:1"></stop>
+                    </linearGradient>
+                </defs>
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="url(#waveGradient)"></path>
+            </svg>
+        </div>
+
+        <div class="footer-container">
+            <!-- About Column -->
+            <div class="footer-col about">
+                <div class="footer-logo">
+                    <img src="/project/images/circle-gouya.webp" alt="لوگوی مدرسه گویا">
+                    <h3>مجتمع آموزشی گویا</h3>
+                </div>
+                <p class="footer-description">
+                    مدرسه بین‌المللی گویا با بیش از ۳۳ سال تجربه درخشان در آموزش بین‌المللی، پذیرای دانش‌آموزان از پیش‌دبستانی تا دیپلم است.
+                </p>
+                <div class="footer-certificates">
+                    <span class="certificate-badge">مجوز رسمی آموزش و پرورش</span>
+                    <span class="certificate-badge">مدرسه بین‌المللی</span>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="footer-col links">
+                <h3 class="footer-title">دسترسی سریع</h3>
+                <ul>
+                    <li><a href="#"><span class="link-icon">🏠</span> صفحه اصلی</a></li>
+                    <li><a href="#"><span class="link-icon">🎓</span> مقاطع تحصیلی</a></li>
+                    <li><a href="/project/services.html"><span class="link-icon">⚙️</span> سرویس‌ها</a></li>
+                    <li><a href="/project/gallery.html"><span class="link-icon">📷</span> گالری</a></li>
+                    <li><a href="/project/blog.html"><span class="link-icon">📝</span> بلاگ</a></li>
+                    <li><a href="/project/register.html"><span class="link-icon">📋</span> پیش ثبت نام</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-col contact">
+                <h3 class="footer-title">ارتباط با ما</h3>
+                <ul class="contact-list">
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong> پیش دبستان و دبستان(دوره اول) گویا</strong>
+                            <p>خیابان شریعتی،نرسیده به سیدخندان،کوچه موزه(بسطامی)،پلاک3
+88513559-88519494</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong> دبستان(دوره دوم) گویا:</strong>
+                            <p>خیابان شریعتی،نرسیده به سیدخندان،کوچه موزه (بسطامی)،پلاک7
+ <br>88179085-88759034</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>متوسطه دوره اول گویا:</strong>
+                            <p>خیابان سهروردی شمالی خیابان قندی نبش کوچه سوم 
+                               <br> 88767596-88767597 </p>
+                        </div>
+                    </li>
+                     <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong> متوسطه دوره دوم گویا:</strong>
+                            <p>
+خیابان شریعتی،خیابان هویزه شرقی،پلاک11
+ <br>88175899-88175894</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="contact-info">
+                    <p><span class="contact-icon">📞</span>  تلفن دفتر مرکزی: <a href="tel:02179996">88513559</a></p>
+                    <p><span class="contact-icon">✉️</span> ایمیل: <a href="mailto:info@gouya.school">info@gouya.school</a></p>
+                </div>
+            </div>
+
+            <!-- Social Media Column -->
+            <div class="footer-col social">
+                <h3 class="footer-title">شبکه‌های اجتماعی</h3>
+                <p class="social-description">ما را در شبکه‌های اجتماعی دنبال کنید و از آخرین اخبار مدرسه مطلع شوید.</p>
+                
+                <div class="social-grid">
+                    <a href="#" class="social-link instagram" aria-label="اینستاگرام">
+                        <img src="/project/images/icon/Instagram_icon.webp" alt="اینستاگرام">
+                        <span>اینستاگرام</span>
+                    </a>
+                    
+                    <a href="#" class="social-link telegram" aria-label="تلگرام">
+                        <img src="/project/images/icon/Telegram_logo.webp" alt="تلگرام">
+                        <span>تلگرام</span>
+                    </a>
+                    <a href="#" class="social-link whatsapp" aria-label="واتساپ">
+                        <img src="/project/images/icon/WhatsApp.webp" alt="واتساپ">
+                        <span>واتساپ</span>
+                    </a>
+                   
+                    <a href="#" class="social-link aparat" aria-label="آپارات">
+                        <img src="/project/images/circle-gouya.webp" alt="آپارات">
+                        <span>آپارات</span>
+                    </a>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="newsletter">
+                    <h4>عضویت در خبرنامه</h4>
+                    <p>برای دریافت اخبار و اطلاعیه‌ها ایمیل خود را وارد کنید.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="آدرس ایمیل شما" required>
+                        <button type="submit">عضویت</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    <p>© کلیه حقوق این وبسایت متعلق به <strong>مجموعه آموزشی  گویا</strong> می‌باشد. 1404</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">حریم خصوصی</a>
+                    <a href="#">قوانین و مقررات</a>
+                    <a href="#">سوالات متداول</a>
+                    <a href="#">نقشه سایت</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        // Mobile Menu Functionality
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+        // Toggle mobile menu
+        hamburgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hamburgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        // Close menu when clicking overlay
+        menuOverlay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hamburgerBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Toggle dropdowns in mobile menu
+        mobileDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const parent = toggle.closest('.mobile-menu-item');
+                const dropdown = parent.querySelector('.mobile-dropdown');
+                const chevron = toggle.querySelector('.mobile-chevron');
+                
+                // Close other dropdowns
+                document.querySelectorAll('.mobile-dropdown').forEach(d => {
+                    if (d !== dropdown && d.classList.contains('active')) {
+                        d.classList.remove('active');
+                        const otherChevron = d.closest('.mobile-menu-item').querySelector('.mobile-chevron');
+                        if (otherChevron) {
+                            otherChevron.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+                
+                // Toggle current dropdown
+                dropdown.classList.toggle('active');
+                if (chevron) {
+                    chevron.style.transform = dropdown.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Initialize Swiper for Teachers
+        const teachersSwiper = new Swiper(".teachers-swiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+
+        // Initialize Swiper for Gallery
+        const gallerySwiper = new Swiper(".grade-swiper", {
+            slidesPerView: 4,
+            spaceBetween: 25,
+            loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination-grade",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: ".next",
+                prevEl: ".prev",
+            },
+            breakpoints: {
+                320: { slidesPerView: 1 },
+                576: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 }
+            }
+        });
+
+        // Lightbox Functions
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        
+        // آرایه تصاویر گالری
+        const galleryImages = [
+            "/project/images/gallery/elementary1.jpg",
+            "/project/images/gallery/elementary2.jpg", 
+            "/project/images/gallery/elementary3.jpg",
+            "/project/images/gallery/elementary4.jpg",
+            "/project/images/gallery/elementary5.jpg",
+            "/project/images/gallery/elementary6.jpg",
+            "/project/images/gallery/elementary7.jpg",
+            "/project/images/gallery/elementary8.jpg"
+        ];
+        
+        let currentImageIndex = 0;
+        
+        // باز کردن lightbox
+        document.querySelectorAll('.grade-gallery-slide').forEach((slide, index) => {
+            slide.addEventListener('click', () => {
+                currentImageIndex = index;
+                lightboxImg.src = galleryImages[index];
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // بستن lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // تصویر قبلی
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            lightboxImg.src = galleryImages[currentImageIndex];
+        }
+        
+        // تصویر بعدی
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            lightboxImg.src = galleryImages[currentImageIndex];
+        }
+        
+        // پیمایش با کیبورد
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    prevImage();
+                } else if (e.key === 'ArrowLeft') {
+                    nextImage();
+                }
+            }
+        });
+        
+        // بستن با کلیک روی پس‌زمینه
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Waves Animation
+        const canvas = document.getElementById("waves");
+        const ctx = canvas.getContext("2d");
+        
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        window.addEventListener("resize", resize);
+        resize();
+        
+        const colors = [
+            "rgba(255, 203, 42, 0.2)",
+            "rgba(113, 63, 148, 0.2)",
+            "rgba(255, 203, 42, 0.15)",
+            "rgba(113, 63, 148, 0.15)",
+            "rgba(255, 203, 42, 0.1)",
+            "rgba(113, 63, 148, 0.1)"
+        ];
+        
+        class Wave {
+            constructor(y, amplitude, wavelength, speed, color) {
+                this.y = y;
+                this.amplitude = amplitude;
+                this.wavelength = wavelength;
+                this.speed = speed;
+                this.color = color;
+                this.offset = Math.random() * 1000;
+            }
+            
+            draw(t) {
+                ctx.beginPath();
+                ctx.moveTo(0, this.y);
+                for (let x = 0; x <= canvas.width; x += 10) {
+                    const y = this.y + Math.sin((x + t * this.speed + this.offset) / this.wavelength) * this.amplitude;
+                    ctx.lineTo(x, y);
+                }
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 3;
+                ctx.stroke();
+            }
+        }
+        
+        const waves = [];
+        
+        for (let i = 0; i < colors.length; i++) {
+            waves.push(
+                new Wave(
+                    canvas.height * (0.15 + i * 0.12),
+                    25 + i * 3,
+                    120 + i * 10,
+                    0.15,
+                    colors[i]
+                )
+            );
+        }
+        
+        function animate(t) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            waves.forEach(w => w.draw(t));
+            requestAnimationFrame(animate);
+        }
+        
+        animate(0);
+    </script>
+</body>
+</html>

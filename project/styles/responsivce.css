@@ -1,0 +1,869 @@
+/* ==================== */
+/* RESPONSIVE STYLES */
+/* ==================== */
+
+/* Global Responsive Adjustments */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+        padding: 0 15px;
+    }
+    
+    .grid-photo {
+        grid-template-rows: 18rem 18rem;
+    }
+    
+    .orbit {
+        width: 500px;
+        height: 500px;
+    }
+    
+    .small {
+        width: 180px;
+        height: 180px;
+        margin-left: -100px;
+        margin-top: -100px;
+    }
+    
+    .center-circle {
+        width: 160px;
+        height: 160px;
+        font-size: 1.8rem;
+    }
+}
+
+/* Desktop header adjustments: prevent overlap between 993px and 1440px */
+@media (min-width: 993px) and (max-width: 1440px) {
+    .nav-container {
+        padding: 0 2rem;
+        gap: 1.5rem;
+    }
+
+    .app-logo_Img {
+        height: 5rem;
+    }
+
+    .menu {
+        position: static;
+        right: auto;
+        gap: 1.5rem;
+    }
+
+    .menu a {
+        font-size: 1.1rem;
+        white-space: nowrap;
+    }
+
+    .register {
+        width: 7rem;
+        height: 3.5rem;
+        flex-shrink: 0;
+    }
+}
+
+/* Small desktop/laptop widths: avoid navbar overlap */
+@media (min-width: 993px) and (max-width: 1400px) {
+  .nav-container {
+    padding: 0 2rem;
+    gap: 1.5rem;
+  }
+  /* App-level navbar uses absolute positioning; reset to flex flow here */
+  .menu {
+    position: static !important;
+    right: auto !important;
+    left: auto !important;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+  }
+  .menu a {
+    white-space: nowrap;
+    font-size: 1.1rem;
+  }
+  .register {
+    width: 7rem;
+    height: 3.5rem;
+    flex-shrink: 0;
+  }
+}
+
+/* Tablet Styles (992px and below) */
+@media (max-width: 992px) {
+    /* Navigation */
+    .nav-container {
+        height: 6rem;
+        padding: 0 15px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Hide desktop menu on tablets and phones */
+    .menu {
+        display: none !important;
+    }
+    
+    /* Hamburger Menu Button - سمت راست */
+    .hamburger-menu {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 40px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        position: relative;
+        right: 0;
+        left: auto;
+        top: auto;
+        transform: none;
+        z-index: 1001;
+        order: 3; /* قرارگیری در سمت راست */
+    }
+    
+    .hamburger-menu span {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: var(--primary-purple);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    .hamburger-menu.active span:nth-child(1) {
+        transform: translateY(13px) rotate(45deg);
+    }
+    
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger-menu.active span:nth-child(3) {
+        transform: translateY(-13px) rotate(-45deg);
+    }
+    
+    /* Logo positioning - وسط */
+    .app-logo {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        transform: none;
+        order: 2; /* قرارگیری در وسط */
+        flex-grow: 1;
+        text-align: center;
+    }
+    
+    .app-logo_Img {
+        height: 4.5rem;
+        margin: 0 auto;
+    }
+    
+    /* Register Button positioning - سمت چپ */
+    .register {
+        position: relative;
+        right: auto;
+        left: 0;
+        top: auto;
+        transform: none;
+        width: 7rem;
+        height: 3.2rem;
+        background-color: var(--primary-purple);
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        order: 1; /* قرارگیری در سمت چپ */
+    }
+    
+    .text-register {
+        font-size: 0.9rem;
+        margin-top: 0.8rem;
+        color: white;
+        font-family: "farsi-bold";
+    }
+    
+    /* Mobile Menu Overlay */
+    .menu-overlay {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+    
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        right: -350px;
+        width: 300px;
+        height: 100vh;
+        background: linear-gradient(135deg, var(--primary-yellow) 0%, #ffd95a 100%);
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+        transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 9999;
+        overflow-y: auto;
+        direction: rtl;
+        padding: 20px 0;
+    }
+    
+    .mobile-menu.active {
+        right: 0;
+    }
+    
+    .mobile-menu-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 0 20px 1rem;
+        border-bottom: 2px solid rgba(113, 63, 148, 0.2);
+    }
+    
+    .mobile-logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .mobile-menu-header h3 {
+        color: var(--primary-purple);
+        font-size: 1rem;
+        margin: 0;
+        font-family: "farsi-bold";
+    }
+    
+    .mobile-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .mobile-menu > ul > li {
+        margin-bottom: 0;
+        border-bottom: 1px solid rgba(113, 63, 148, 0.1);
+    }
+    
+    .mobile-menu > ul > li:last-child {
+        border-bottom: none;
+        margin-top: 1rem;
+    }
+    
+    .mobile-menu a {
+        color: var(--primary-purple);
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        transition: background 0.3s;
+        font-family: "farsi-bold";
+        font-size: 1.1rem;
+    }
+    
+    .mobile-menu a:hover {
+        background: rgba(113, 63, 148, 0.1);
+    }
+    
+    .mobile-dropdown-toggle {
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    .mobile-dropdown-toggle span {
+        flex-grow: 1;
+    }
+    
+    .mobile-chevron {
+        transition: transform 0.3s ease;
+        fill: var(--primary-purple);
+        margin-left: 10px;
+    }
+    
+    .mobile-dropdown {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .mobile-dropdown.active {
+        max-height: 500px;
+    }
+    
+    .mobile-dropdown li {
+        margin-bottom: 0;
+        border-bottom: 1px solid rgba(113, 63, 148, 0.05);
+    }
+    
+    .mobile-dropdown li:last-child {
+        border-bottom: none;
+    }
+    
+    .mobile-dropdown a {
+        font-size: 1rem;
+        font-weight: normal;
+        color: #555;
+        padding: 12px 30px;
+        font-family: "farsi-medium";
+        border-left: 3px solid transparent;
+    }
+    
+    .mobile-dropdown a:hover {
+        background: rgba(113, 63, 148, 0.15);
+        border-left: 3px solid var(--primary-purple);
+    }
+    
+    .mobile-register-btn {
+        background: var(--primary-purple) !important;
+        color: white !important;
+        text-align: center;
+        justify-content: center !important;
+        margin: 1rem 20px 0;
+        border-radius: 8px;
+        padding: 12px !important;
+    }
+    
+    .mobile-register-btn:hover {
+        background: var(--dark-purple) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(113, 63, 148, 0.3);
+    }
+    
+    /* Photo Grid */
+    .photo-head {
+        margin-top: 1rem;
+    }
+    
+    .grid-photo {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 16rem 16rem;
+        width: 95%;
+        margin: 0 auto;
+    }
+    
+    /* Circle Container */
+    .circle-container {
+        margin-top: 4rem;
+    }
+    
+    .orbit {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .small {
+        width: 150px;
+        height: 150px;
+        margin-left: -85px;
+        margin-top: -85px;
+        font-size: 16px;
+    }
+    
+    .text-container {
+        font-size: 1.4rem;
+    }
+    
+    /* About Section */
+    .box-container {
+        flex-direction: column;
+        padding: 25px;
+        margin: 20px auto;
+        width: 95%;
+    }
+    
+    .slideshow, .content {
+        width: 100%;
+    }
+    
+    .slideshow {
+        height: 280px;
+        margin-bottom: 25px;
+    }
+    
+    /* Why Section */
+    .why {
+        padding: 4rem 0;
+        margin-top: 4rem;
+    }
+    
+    .card {
+        height: 280px;
+        padding: 20px 15px;
+    }
+    
+    /* Footer */
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Mobile Styles (768px and below) */
+  @media (max-width: 768px) {
+    /* Navigation */
+    .nav-container {
+        height: 5rem;
+    }
+    
+    .app-logo_Img {
+        height: 4rem;
+    }
+    
+    /* تنظیم موقعیت دکمه‌ها */
+    .hamburger-menu {
+        order: 3; /* سمت راست */
+    }
+    
+    .app-logo {
+        order: 2; /* وسط */
+    }
+    
+    .register {
+        order: 1; /* سمت چپ */
+        width: 6.5rem;
+        height: 2.8rem;
+    }
+    
+    .text-register {
+        font-size: 0.8rem;
+        margin-top: 0.7rem;
+    }
+    
+    /* Photo Grid */
+    .grid-photo {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 180px);
+        grid-template-areas:
+            "big"
+            "top"
+            "bottom";
+        gap: 1rem;
+    }
+    
+    /* Circle Container */
+    .circle-container {
+        margin-top: 3rem;
+    }
+    
+    .orbit {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .small {
+        width: 120px;
+        height: 120px;
+        margin-left: -70px;
+        margin-top: -70px;
+    }
+    
+    .center-circle {
+        width: 130px;
+        height: 130px;
+        font-size: 1.4rem;
+    }
+    
+    .text-container {
+        font-size: 1.1rem;
+    }
+    
+    /* About Section */
+    .box-container {
+        padding: 20px;
+    }
+    
+    .content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .content p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    
+    .btn {
+        padding: 12px 25px;
+        font-size: 1.3rem;
+    }
+    
+    /* Why Section */
+    .card {
+        height: 260px;
+    }
+    
+    .card-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .card img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .slider-title {
+        font-size: 1.2rem;
+    }
+    
+    .card p {
+        font-size: 0.95rem;
+    }
+    
+    /* Footer */
+    .social-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Small Mobile Styles (576px and below) */
+@media (max-width: 576px) {
+    /* General */
+    .grid-head, .why-head {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    /* Navigation */
+    .mobile-menu {
+        width: 280px;
+    }
+    
+     .register {
+        width: 6rem;
+        height: 2.5rem;
+    }
+    
+    .text-register {
+        font-size: 0.8rem;
+    }
+    
+    .mobile-menu a {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    
+    .mobile-dropdown a {
+        padding: 10px 30px;
+    }
+    
+    /* Circle Container */
+    .orbit {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .small {
+        width: 100px;
+        height: 100px;
+        margin-left: -60px;
+        margin-top: -60px;
+    }
+    
+    .center-circle {
+        width: 110px;
+        height: 110px;
+        font-size: 1.2rem;
+    }
+    
+    .text-container {
+        font-size: 1rem;
+    }
+    
+    /* About Section */
+    .slideshow {
+        height: 220px;
+    }
+    
+    .content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .content p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+    }
+    
+    /* Why Section */
+    .why {
+        padding: 3rem 0;
+        margin-top: 3rem;
+    }
+    
+    .card {
+        height: 240px;
+        padding: 15px 10px;
+    }
+    
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 12px;
+    }
+    
+    .slider-title {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .swiper-button-next, 
+    .swiper-button-prev {
+        display: none;
+    }
+    
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .social-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+}
+
+/* Extra Small Devices (400px and below) */
+@media (max-width: 400px) {
+    .orbit {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .small {
+        width: 90px;
+        height: 90px;
+        margin-left: -50px;
+        margin-top: -50px;
+    }
+    
+    .center-circle {
+        width: 100px;
+        height: 100px;
+        font-size: 1.1rem;
+    }
+    
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .mobile-menu {
+        width: 260px;
+    }
+    
+    .register {
+        right: 50px;
+        width: 5.5rem;
+        height: 2.3rem;
+    }
+    
+    .text-register {
+        font-size: 0.7rem;
+    }
+}
+
+/* Landscape Orientation */
+@media (max-height: 600px) and (orientation: landscape) {
+    .mobile-menu {
+        padding-top: 10px;
+        overflow-y: scroll;
+        height: 100vh;
+    }
+    
+    .mobile-menu > ul > li {
+        margin-bottom: 0.3rem;
+    }
+    
+    .mobile-menu a {
+        padding: 8px 15px;
+        font-size: 1rem;
+    }
+    
+    .mobile-dropdown a {
+        padding: 6px 30px;
+    }
+    
+    .slideshow {
+        height: 180px;
+    }
+    
+    .mobile-menu-header {
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .mobile-logo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Fix for scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .mobile-menu {
+        height: -webkit-fill-available;
+    }
+}
+
+/* Smooth transitions for dropdowns */
+.mobile-dropdown {
+    transition: max-height 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Active state for mobile menu items */
+.mobile-menu > ul > li.active > a {
+    background: rgba(113, 63, 148, 0.15);
+    border-right: 3px solid var(--primary-purple);
+}
+
+/* Ensure desktop menu stays hidden on mobile */
+@media (max-width: 992px) {
+    .menu {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    .dropdown-menu {
+        display: none !important;
+    }
+}
+
+
+
+
+/* Fix for menu overlay blocking */
+.menu-overlay {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .menu-overlay {
+        display: block;
+    }
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix for mobile menu closing animation */
+.mobile-menu {
+    transform: translateX(0);
+}
+
+.mobile-menu:not(.active) {
+    transform: translateX(100%);
+}
+
+/* Enhanced hover effects for mobile */
+@media (hover: hover) and (pointer: fine) {
+    .mobile-menu a:hover {
+        background: rgba(113, 63, 148, 0.15);
+        transform: translateX(-5px);
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-dropdown a:hover {
+        transform: translateX(-10px);
+        padding-right: 35px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .mobile-menu,
+    .hamburger-menu,
+    .menu-overlay,
+    .register {
+        display: none !important;
+    }
+}
+@media (max-width: 400px) {
+
+    .register {
+        position: static;        /* مهم */
+        width: auto;
+        min-width: 5rem;
+        height: 2.2rem;
+        padding: 0 0.6rem;
+        border-radius: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .text-register {
+        font-size: 0.7rem;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+}
+@media (min-width: 993px) and (max-width: 1440px) {
+    .nav-container {
+        padding: 0 2rem;
+        gap: 1.5rem;
+    }
+
+    .app-logo_Img {
+        height: 5rem;
+    }
+
+    .menu {
+        position: static;
+        right: auto;
+        gap: 1.5rem;
+    }
+
+    .menu a {
+        font-size: 1.1rem;
+        white-space: nowrap;
+    }
+
+    .register {
+        width: 7rem;
+        height: 3.5rem;
+        flex-shrink: 0;
+    }
+}

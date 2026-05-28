@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/project/styles/register.css">
+    <title>فرم ثبت نام - مدرسه گویا</title>
+    <style>
+        /* فونت وزیر برای نمایش بهتر فارسی */
+        @import url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css');
+        
+        * {
+            font-family: Vazir, Tahoma, Arial, sans-serif !important;
+        }
+        
+        /* استایل موقت برای نمایش بهتر در اینجا */
+        body {
+            background: linear-gradient(135deg, #e4ac53 40%, #667eea 60%) !important;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- دکوریشن‌های پس‌زمینه -->
+    <div class="global-decoration">
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+    </div>
+
+    <div class="register-container">
+        <div class="register-header">
+            <!-- لوگوی مدرسه - می‌توانید آدرس واقعی قرار دهید -->
+            <div class="register-logo">🏫</div>
+            <h1 class="register-title">فرم ثبت نام دانش آموز</h1>
+            <p class="register-subtitle">مدارس هوشمند گویا</p>
+        </div>
+
+        <!-- نمایش پیام‌های موفقیت یا خطا -->
+        <div id="message-container">
+            <!-- پیام‌ها در اینجا نمایش داده می‌شوند -->
+        </div>
+
+        <form id="registration-form" method="POST">
+            <!-- بخش اطلاعات دانش آموز -->
+            <div class="form-section">
+                <h2 class="section-title">اطلاعات دانش آموز</h2>
+                
+                <div class="form-group">
+                    <label for="full_name" class="required">نام و نام خانوادگی دانش آموز:</label>
+                    <div class="input-with-icon">
+                        <input type="text" id="full_name" name="full_name" required placeholder="نام و نام خانوادگی کامل">
+                        <div class="input-icon">👤</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="father_name" class="required">نام پدر:</label>
+                    <div class="input-with-icon">
+                        <input type="text" id="father_name" name="father_name" required placeholder="نام پدر">
+                        <div class="input-icon">👨</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birth_date" class="required">تاریخ تولد:</label>
+                        <div class="input-with-icon">
+                            <input type="date" id="birth_date" name="birth_date" required class="persian-date">
+                            <div class="input-icon">📅</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="national_code" class="required">کد ملی:</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="national_code" name="national_code" required placeholder="کد ملی ۱۰ رقمی" maxlength="10">
+                            <div class="input-icon">🆔</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="previous_school">نام مدرسه قبلی:</label>
+                    <div class="input-with-icon">
+                        <input type="text" id="previous_school" name="previous_school" placeholder="نام مدرسه قبلی (در صورت وجود)">
+                        <div class="input-icon">🏫</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="first_term_grade" class="required">معدل ترم اول:</label>
+                    <div class="input-with-icon">
+                        <input type="number" id="first_term_grade" name="first_term_grade" required min="10" max="20" step="0.01" placeholder="معدل بین ۱۰ تا ۲۰">
+                        <div class="input-icon">📊</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- بخش اطلاعات تماس -->
+            <div class="form-section">
+                <h2 class="section-title">اطلاعات تماس</h2>
+                
+                <div class="form-group">
+                    <label for="home_phone" class="required">شماره تلفن منزل:</label>
+                    <div class="input-with-icon">
+                        <input type="tel" id="home_phone" name="home_phone" required placeholder="شماره تلفن منزل" dir="rtl">
+                        <div class="input-icon">📞</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="father_mobile" class="required">شماره همراه پدر:</label>
+                        <div class="input-with-icon">
+                            <input type="tel" id="father_mobile" name="father_mobile" required placeholder="۰۹xxxxxxxxx" dir="rtl">
+                            <div class="input-icon">📱</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mother_mobile" class="required">شماره همراه مادر:</label>
+                        <div class="input-with-icon">
+                            <input type="tel" id="mother_mobile" name="mother_mobile" required placeholder="۰۹xxxxxxxxx" dir="rtl">
+                            <div class="input-icon">📱</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="home_address" class="required">آدرس منزل:</label>
+                    <div class="input-with-icon">
+                        <textarea id="home_address" name="home_address" required rows="3" placeholder="آدرس کامل منزل" dir="rtl"></textarea>
+                        <div class="input-icon">🏠</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- بخش شرایط زندگی -->
+            <div class="form-section">
+                <h2 class="section-title">شرایط زندگی</h2>
+                
+                <div class="form-group">
+                    <label for="living_with" class="required">در حال حاضر دانش آموز با چه کسانی زندگی می‌کند؟</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="living_with_both" name="living_with" value="both_parents" required>
+                            <label for="living_with_both">پدر و مادر</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="living_with_father" name="living_with" value="father_only">
+                            <label for="living_with_father">فقط پدر</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="living_with_mother" name="living_with" value="mother_only">
+                            <label for="living_with_mother">فقط مادر</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="living_with_other" name="living_with" value="other">
+                            <label for="living_with_other">سایر (اقوام، پرستار و ...)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="other_living_situation" style="display: none;">
+                    <label for="other_living_details">توضیحات بیشتر:</label>
+                    <textarea id="other_living_details" name="other_living_details" rows="2" placeholder="در صورت انتخاب گزینه سایر، لطفاً توضیح دهید" dir="rtl"></textarea>
+                </div>
+            </div>
+
+            <!-- قوانین و مقررات مدرسه -->
+            <div class="terms-box">
+                <h2 class="section-title">قوانین و مقررات مدرسه گویا</h2>
+                <div class="terms-content" id="termsContent">
+                    <p>۱. حضور و غیاب: حضور منظم در کلاس‌ها الزامی است و غیبت بدون عذر موجه بر روند ثبت‌نام و ادامه تحصیل تأثیر می‌گذارد.</p>
+                    <p>۲. انضباط و رفتار: رعایت احترام متقابل نسبت به کادر مدرسه و دانش‌آموزان، رعایت پوشش مناسب و تبعیت از قوانین انضباطی مدرسه الزامی است.</p>
+                    <p>۳. استفاده از وسایل الکترونیکی: استفاده از تلفن همراه و وسایل هوشمند تنها طبق ضوابط مدرسه و با هماهنگی مسئولین مجاز است.</p>
+                    <p>۴. خسارت و مسئولیت: در صورت بروز هرگونه خسارت به اموال مدرسه، جبران آن بر عهده ولی دانش‌آموز خواهد بود.</p>
+                    <p>۵. اطلاع‌رسانی: کلیه اطلاعیه‌ها و تغییرات از طریق کانال‌های رسمی مدرسه اعلام می‌گردد و پیگیری آن بر عهده اولیا است.</p>
+                    <p>۶. صحت اطلاعات: ولی دانش‌آموز متعهد است که تمامی اطلاعات وارد شده در این فرم مطابق واقع بوده و در صورت مغایرت، مسئولیت عواقب آن را می‌پذیرد.</p>
+                </div>
+                <p class="terms-hint" id="termsHint">برای فعال شدن تیک، لطفاً تا انتهای قوانین را مطالعه کنید.</p>
+            </div>
+
+            <!-- بخش تأیید قوانین -->
+            <div class="terms-group">
+                <input type="checkbox" id="terms" name="terms" required disabled>
+                <label for="terms" class="required">
+                    تایید می‌کنم که <strong>قوانین و مقررات مدرسه گویا</strong> را به طور کامل مطالعه کرده‌ام و با آن‌ها موافقم.
+                </label>
+            </div>
+            
+            <button type="submit" class="register-btn">ثبت نام و ارسال اطلاعات</button>
+        </form>
+        
+        <div class="back-to-home">
+            <a href="/index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+                بازگشت به صفحه اصلی
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // نمایش/پنهان کردن فیلد توضیحات در صورت انتخاب گزینه "سایر"
+        document.querySelectorAll('input[name="living_with"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const otherDetails = document.getElementById('other_living_situation');
+                if (this.value === 'other') {
+                    otherDetails.style.display = 'block';
+                } else {
+                    otherDetails.style.display = 'none';
+                    document.getElementById('other_living_details').value = '';
+                }
+            });
+        });
+
+        // اعتبارسنجی فرم
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // اعتبارسنجی کد ملی (۱۰ رقم)
+            const nationalCode = document.getElementById('national_code').value;
+            if (nationalCode.length !== 10 || isNaN(nationalCode)) {
+                showMessage('کد ملی باید ۱۰ رقم باشد', 'error');
+                return;
+            }
+            
+            // اعتبارسنجی شماره تلفن‌ها
+            const phoneRegex = /^09\d{9}$/;
+            const fatherMobile = document.getElementById('father_mobile').value;
+            const motherMobile = document.getElementById('mother_mobile').value;
+            
+            if (!phoneRegex.test(fatherMobile)) {
+                showMessage('شماره همراه پدر باید با 09 شروع شده و 11 رقم باشد', 'error');
+                return;
+            }
+            
+            if (!phoneRegex.test(motherMobile)) {
+                showMessage('شماره همراه مادر باید با 09 شروع شده و 11 رقم باشد', 'error');
+                return;
+            }
+            
+            // اعتبارسنجی معدل
+            const grade = parseFloat(document.getElementById('first_term_grade').value);
+            if (grade < 10 || grade > 20) {
+                showMessage('معدل باید بین ۱۰ تا ۲۰ باشد', 'error');
+                return;
+            }
+            
+            // اعتبارسنجی تاریخ تولد
+            const birthDate = document.getElementById('birth_date').value;
+            if (!birthDate) {
+                showMessage('تاریخ تولد را انتخاب کنید', 'error');
+                return;
+            }
+            
+            const form = this;
+            const submitBtn = form.querySelector('.register-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'در حال ارسال...';
+
+            const payload = {
+                full_name: document.getElementById('full_name').value.trim(),
+                father_name: document.getElementById('father_name').value.trim(),
+                birth_date: document.getElementById('birth_date').value,
+                national_code: nationalCode,
+                previous_school: document.getElementById('previous_school').value.trim(),
+                first_term_grade: grade,
+                home_phone: document.getElementById('home_phone').value.trim(),
+                father_mobile: fatherMobile,
+                mother_mobile: motherMobile,
+                home_address: document.getElementById('home_address').value.trim(),
+                living_with: document.querySelector('input[name="living_with"]:checked').value,
+                other_living_details: document.getElementById('other_living_details').value.trim(),
+            };
+
+            fetch('/api/registrations', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            })
+            .then(async (res) => {
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) {
+                    throw new Error(data.error || 'خطا در ثبت اطلاعات');
+                }
+                showMessage(data.message || 'ثبت‌نام با موفقیت انجام شد.', 'success');
+                form.reset();
+                document.getElementById('other_living_situation').style.display = 'none';
+                document.getElementById('terms').disabled = true;
+                document.getElementById('termsHint').textContent = 'برای فعال شدن تیک، لطفاً تا انتهای قوانین را مطالعه کنید.';
+                document.getElementById('termsHint').classList.remove('terms-hint--active');
+            })
+            .catch((err) => {
+                showMessage(err.message, 'error');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'ثبت نام و ارسال اطلاعات';
+            });
+        });
+
+        // تابع برای نمایش پیام
+        function showMessage(message, type) {
+            const messageContainer = document.getElementById('message-container');
+            messageContainer.innerHTML = `<div class="${type}">${message}</div>`;
+            
+            // اسکرول به بالا برای دیدن پیام
+            messageContainer.scrollIntoView({ behavior: 'smooth' });
+            
+            // پاک کردن پیام بعد از 5 ثانیه
+            setTimeout(() => {
+                messageContainer.innerHTML = '';
+            }, 5000);
+        }
+
+        // محدود کردن ورود تاریخ تولد به تاریخ‌های گذشته
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('birth_date').setAttribute('max', today);
+        
+        // تابع برای نمایش تاریخ به صورت فارسی در کنسول (برای تست)
+        document.getElementById('birth_date').addEventListener('change', function() {
+            const dateValue = this.value;
+            if (dateValue) {
+                console.log('تاریخ انتخاب شده:', dateValue);
+                // در اینجا می‌توانید تاریخ را به شمسی تبدیل کنید
+            }
+        });
+        
+        // استایل برای نمایش بهتر تاریخ در مرورگرهای مختلف
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            dateInputs.forEach(input => {
+                // برای نمایش بهتر در مرورگرهای فارسی
+                input.style.fontFamily = 'Vazir, Tahoma, Arial, sans-serif';
+            });
+
+            // فعال شدن تیک قوانین بعد از مطالعه کامل متن
+            const termsCheckbox = document.getElementById('terms');
+            const termsContent = document.getElementById('termsContent');
+            const termsHint = document.getElementById('termsHint');
+
+            if (termsCheckbox && termsContent && termsHint) {
+                termsCheckbox.disabled = true;
+
+                termsContent.addEventListener('scroll', function () {
+                    const reachedBottom =
+                        this.scrollTop + this.clientHeight >= this.scrollHeight - 5;
+
+                    if (reachedBottom && termsCheckbox.disabled) {
+                        termsCheckbox.disabled = false;
+                        termsHint.textContent = 'اکنون می‌توانید قوانین را تایید کنید.';
+                        termsHint.classList.add('terms-hint--active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

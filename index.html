@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/project/styles/app.css">
+    <link rel="stylesheet" href="/project/styles/responsivce.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/project/images/circle-gouya.png">
+    <title>مدارس هوشمند گویا</title>
+    
+    <style>
+        canvas {
+            margin-top: 3rem;
+            display: block;
+            z-index: -1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decoration Circles -->
+    <div class="global-decoration">
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container nav-container">
+                <!-- Hamburger Button -->
+                <button class="hamburger-menu" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Logo -->
+                <a href="#" class="app-logo">
+                    <img src="/project/images/IMG_0718.webp" alt="لوگوی مدرسه گویا" class="app-logo_Img">
+                </a>
+                
+                <!-- Desktop Menu -->
+                <ul class="menu">
+                    <li class="menu-item dropdown">
+                        <a href="#">مقاطع تحصیلی
+                            <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">پیش‌دبستانی</a></li>
+                            <li><a href="#">ابتدایی</a></li>
+                            <li><a href="#">متوسطه اول</a></li>
+                            <li><a href="#">متوسطه دوم</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">افتخارات</a></li>
+                    <li><a href="/project/services.html">امکانات اموزشی</a></li>
+                    <li><a href="/project/blog.html">اخبار</a></li>
+                    <li class="menu-item dropdown">
+                        <a href="contact-footer" data-scroll-to="contact-footer">ارتباط با ما</a>
+                        
+                    </li>
+                </ul>
+
+                <!-- Register Button -->
+                <div class="register">
+                    <a href="https://formafzar.com/form/yr0hd">
+                        <p class="text-register">پیش ثبت نام</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <img src="/project/images/circle-gouya.webp" alt="لوگو" class="mobile-logo">
+                <h3>مجموعه مدارس هوشمند پسرانه گویا</h3>
+            </div>
+            <ul>
+                <li class="mobile-menu-item">
+                    <a href="#" class="mobile-dropdown-toggle">
+                        <span>مقاطع تحصیلی</span>
+                        <svg class="mobile-chevron" width="16" height="16" viewBox="0 0 16 16">
+                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="#">پیش‌دبستانی</a></li>
+                        <li><a href="#">ابتدایی</a></li>
+                        <li><a href="#">متوسطه اول</a></li>
+                        <li><a href="#">متوسطه دوم</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">افتخارات </a></li>
+                <li><a href="#">امکانات اموزشی</a></li>
+                <li><a href="#">اخبار</a></li>
+                <li class="mobile-menu-item">
+                    <a href="#" class="mobile-dropdown-toggle">
+                        <span>ارتباط با ما</span>
+                        
+                    </a>
+                    
+                </li>
+                <li><a href="https://formafzar.com/form/yr0hd" class="mobile-register-btn">پیش ثبت نام</a></li>
+            </ul>
+        </div>
+        
+        <!-- Hero Images -->
+        <div class="photo-head">
+            <div class="container">
+                <div class="grid-photo">
+                    <div class="photo-item big">
+                        <img src="/project/images/BORJ.webp" alt="تصویر ساختمان مدرسه">
+                    </div>
+                    <div class="photo-item top">
+                        <a href="https://formafzar.com/form/yr0hd">
+                            <img src="/project/images/pre-register.webp" alt="پیش ثبت نام">
+                        </a>
+                    </div>
+                    <div class="photo-item bottom">
+                        <img src="/project/images/1.webp" alt="فعالیت‌های مدرسه">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Waves Background -->
+        <canvas id="waves"></canvas>
+        
+\      <!-- بخش چهارگانه (four-grid) -->
+<section class="four-grid">
+    <div class="container skew-reset">
+        <h2 class="grid-head">مقاطع تحصیلی</h2>
+        
+        <!-- حالت دایره‌ای (برای دسکتاپ) -->
+        <div class="circle-container">
+            <div class="bg-decoration">
+                <div class="decoration-circle"></div>
+                <div class="decoration-circle"></div>
+                <div class="decoration-circle"></div>
+            </div>
+            <div class="center-circle">مقاطع تحصیلی</div>
+            
+            <div class="circle-grid">
+                <div class="orbit">
+                    <a href="#" class="small yellow">
+                        <div class="text-container">دبستان</div>
+                    </a>
+                    <a href="#" class="small green">
+                        <div class="text-container">پیش‌دبستان</div>
+                    </a>
+                    <a href="#" class="small purple">
+                        <div class="text-container">متوسطه اول</div>
+                    </a>
+                    <a href="#" class="small blue">
+                        <div class="text-container">متوسطه دوم</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- حالت کارت (برای موبایل و تبلت) -->
+        <div class="education-cards-mobile">
+            <a href="#" class="education-card card-yellow">
+                <div class="card-title">دبستان</div>
+                <div class="card-subtitle">مقطع ابتدایی</div>
+            </a>
+            <a href="#" class="education-card card-green">
+                <div class="card-title">پیش‌دبستان</div>
+                <div class="card-subtitle">آمادگی تحصیلی</div>
+            </a>
+            <a href="#" class="education-card card-purple">
+                <div class="card-title">متوسطه اول</div>
+                <div class="card-subtitle">دوره اول متوسطه</div>
+            </a>
+            <a href="#" class="education-card card-blue">
+                <div class="card-title">متوسطه دوم</div>
+                <div class="card-subtitle">دوره دوم متوسطه</div>
+            </a>
+        </div>
+    </div>
+</section>
+        
+        <!-- About Us Section -->
+        <section class="about-us">
+            <h2 class="grid-head">درباره گویا</h2>
+            <div class="box-container">
+                <div class="slideshow">
+                    <img src="/project/images/1.webp" class="slide active" alt="تصویر مدرسه">
+                    <img src="/project/images/10.webp" class="slide" alt="فعالیت دانش‌آموزان">
+                    <img src="/project/images/11.webp" class="slide" alt="محیط آموزشی">
+                    <img src="/project/images/1.webp" class="slide" alt="تصویر مدرسه">
+                </div>
+                <div class="content">
+                    <h2 class="about-head">درباره ما</h2>
+                    <p>
+موسسه فرهنگی اموزشی گویا تدبیر زمان 
+در سال ۱۳۷۲ به همت همایون رضا بورنگ فعالیت خود را در غالب اموزشگاه زبان اغاز کرد و با توجه به نیاز جامعه به اموزش صحیح و پرورش مناسب نسل اتی در سال ۱۳۷۵ مجموعه مدارس پسرانه هوشمند گویا افتتاح گردید .
+این مجموعه در این بیش از ۳۰ سال فعالیت اموزشی توانسته است جایگاهی ویژه  در عرصه اموزش در کشور داشته باشد                    </p>
+                    <a href="#" class="btn">ارتباط با ما</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Choose Us Section -->
+        <section class="why">
+            <div class="container skew-reset">
+                <h2 class="why-head">چرا مدارس گویا؟</h2>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide card">
+                            <div class="card-icon">
+                                <img src="/project/images/icon/laptop.svg" alt="استفاده از فناوری">
+                            </div>
+                            <h3 class="slider-title">استفاده از فناوری</h3>
+                            <p>بهره‌گیری از ابزارهای نوین دیجیتال در فرآیند یادگیری</p>
+                        </div>
+                        <div class="swiper-slide card">
+                            <div class="card-icon">
+                                <img src="/project/images/icon/map.svg" alt="پرورش سواد فرهنگی">
+                            </div>
+                            <h3 class="slider-title">پرورش سواد فرهنگی</h3>
+                            <p>ایجاد درک عمیق از تنوع فرهنگی و توانایی تعامل موثر با جوامع چندفرهنگی</p>
+                        </div>
+                        <div class="swiper-slide card">
+                            <div class="card-icon">
+                                <img src="/project/images/icon/book.svg" alt="پرورش تفکر نقاد">
+                            </div>
+                            <h3 class="slider-title">پرورش تفکر نقاد</h3>
+                            <p>آموزش تحلیل، حل مسئله و نوآوری در یادگیری فعال</p>
+                        </div>
+                        <div class="swiper-slide card">
+                            <div class="card-icon">
+                                <img src="/project/images/icon/globe-americas.svg" alt="برنامه درسی بین‌المللی">
+                            </div>
+                            <h3 class="slider-title">برنامه درسی بین‌المللی</h3>
+                            <p>استفاده از استانداردهای جهانی برای رشد علمی و شناختی</p>
+                        </div>
+                        <div class="swiper-slide card">
+                            <div class="card-icon">
+                                <img src="/project/images/icon/group-chat.webp" alt="کار تیمی">
+                            </div>
+                            <h3 class="slider-title">کار تیمی</h3>
+                            <p>تقویت مهارت همکاری و حل مسئله گروهی در دانش‌آموزان</p>
+                        </div>
+                        <div class="swiper-slide card">
+                            <div class="card-icon">
+                                <img src="/project/images/icon/lightbulb.svg" alt="نوآوری و خلاقیت">
+                            </div>
+                            <h3 class="slider-title">نوآوری و خلاقیت</h3>
+                            <p>تشویق به ایده‌پردازی و تفکر خلاق در پروژه‌های آموزشی</p>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="contact-footer">
+        <!-- Footer Wave -->
+        <div class="footer-top-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#e4ac53;stop-opacity:1"></stop>
+                        <stop offset="100%" style="stop-color:#667eea;stop-opacity:1"></stop>
+                    </linearGradient>
+                </defs>
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="url(#waveGradient)"></path>
+            </svg>
+        </div>
+
+        <div class="footer-container">
+            <!-- About Column -->
+            <div class="footer-col about">
+                <div class="footer-logo">
+                    <img src="/project/images/IMG_0717.webp" alt="لوگوی مدرسه گویا">
+                    <h3>مجتمع آموزشی گویا</h3>
+                </div>
+                <p class="footer-description">
+                    مدرسه  گویا با بیش از ۳۰ سال تجربه درخشان در آموزش بین‌المللی، پذیرای دانش‌آموزان از پیش‌دبستانی تا دیپلم است.
+                </p>
+                <div class="footer-certificates">
+                    <span class="certificate-badge">مجوز رسمی آموزش و پرورش</span>
+                    <span class="certificate-badge">مدرسه </span>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="footer-col links">
+                <h3 class="footer-title">دسترسی سریع</h3>
+                <ul>
+                    <li><a href="#"><span class="link-icon">🏠</span> صفحه اصلی</a></li>
+                    <li><a href="#"><span class="link-icon">🎓</span> مقاطع تحصیلی</a></li>
+                    <li><a href="/project/services.html"><span class="link-icon">⚙️</span> سرویس‌ها</a></li>
+                    <li><a href="/project/blog.html"><span class="link-icon">📝</span> بلاگ</a></li>
+                    <li><a href="https://formafzar.com/form/yr0hd"><span class="link-icon">📋</span> پیش ثبت نام</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-col contact">
+                <h3 class="footer-title">ارتباط با ما</h3>
+                <ul class="contact-list">
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong> پیش دبستان و دبستان(دوره اول) گویا</strong>
+                            <p>خیابان شریعتی،نرسیده به سیدخندان،کوچه موزه(بسطامی)،پلاک3
+02188513559-02188519494</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong> دبستان(دوره دوم) گویا:</strong>
+                            <p>خیابان شریعتی،نرسیده به سیدخندان،کوچه موزه (بسطامی)،پلاک7
+ <br>02188179085-02188759034</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>متوسطه دوره اول گویا:</strong>
+                            <p>خیابان سهروردی شمالی خیابان قندی نبش کوچه سوم 
+                               <br> 02188767596-02188767597 </p>
+                        </div>
+                    </li>
+                     <li>
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong> متوسطه دوره دوم گویا:</strong>
+                            <p>
+خیابان شریعتی،خیابان هویزه شرقی،پلاک11
+ <br>02188175899-02188175894</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="contact-info">
+                    <p><span class="contact-icon">📞</span>دفتر مرکزی: <a href="tel:02179996">02188513559</a></p>
+                    <p><span class="contact-icon">✉️</span> ایمیل: <a href="mailto:info@gouya.school">info@</a></p>
+                </div>
+            </div>
+
+            <!-- Social Media Column -->
+            <div class="footer-col social">
+                <h3 class="footer-title">شبکه‌های اجتماعی</h3>
+                <p class="social-description">ما را در شبکه‌های اجتماعی دنبال کنید و از آخرین اخبار مدرسه مطلع شوید.</p>
+                
+                <div class="social-grid">
+                    <a href="https://www.instagram.com/gouya_school?igsh=Z2NibHo4Y295cGE1" class="social-link instagram" aria-label="اینستاگرام">
+                        <img src="/project/images/icon/Instagram_icon.webp" alt="اینستاگرام">
+                        <span>اینستاگرام</span>
+                    </a>
+                    
+                    <a href="https://t.me/gouyacomplexschool" class="social-link telegram" aria-label="تلگرام">
+                        <img src="/project/images/icon/Telegram_logo.webp" alt="تلگرام">
+                        <span>تلگرام</span>
+                    </a>
+                    <a href="https://wa.me/qr/L5YTZOTLUS4TO1" class="social-link whatsapp" aria-label="واتساپ">
+                        <img src="/project/images/icon/WhatsApp.webp" alt="واتساپ">
+                        <span>واتساپ</span>
+                    </a>
+                   
+                    <a href="https://www.aparat.com/gouyaschool" class="social-link aparat" aria-label="آپارات">
+                        <img src="/project/images/circle-gouya.webp" alt="آپارات">
+                        <span>آپارات</span>
+                    </a>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="newsletter">
+                    <h4>عضویت در خبرنامه</h4>
+                    <p>برای دریافت اخبار و اطلاعیه‌ها ایمیل خود را وارد کنید.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="آدرس ایمیل شما" required>
+                        <button type="submit">عضویت</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    <p>© کلیه حقوق این وبسایت متعلق به <strong>مجموعه آموزشی  گویا</strong> می‌باشد. 1404</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">حریم خصوصی</a>
+                    <a href="#">قوانین و مقررات</a>
+                    <a href="#">سوالات متداول</a>
+                    <a href="#">نقشه سایت</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+      // Mobile Menu Functionality
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+// Toggle mobile menu
+hamburgerBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hamburgerBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    menuOverlay.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+});
+
+// Close menu when clicking overlay
+menuOverlay.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hamburgerBtn.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+// Toggle dropdowns in mobile menu
+mobileDropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const parent = toggle.closest('.mobile-menu-item');
+        const dropdown = parent.querySelector('.mobile-dropdown');
+        const chevron = toggle.querySelector('.mobile-chevron');
+        
+        console.log('Dropdown clicked', {parent, dropdown, chevron}); // برای دیباگ
+        
+        // Close other dropdowns
+        document.querySelectorAll('.mobile-dropdown').forEach(d => {
+            if (d !== dropdown && d.classList.contains('active')) {
+                d.classList.remove('active');
+                const otherChevron = d.closest('.mobile-menu-item').querySelector('.mobile-chevron');
+                if (otherChevron) {
+                    otherChevron.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
+        
+        // Toggle current dropdown
+        dropdown.classList.toggle('active');
+        if (chevron) {
+            chevron.style.transform = dropdown.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+    });
+});
+
+// Close menu when clicking on a link (except dropdown toggles)
+const mobileMenuLinks = document.querySelectorAll('.mobile-menu a:not(.mobile-dropdown-toggle)');
+mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+        hamburgerBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close all dropdowns when closing mobile menu
+menuOverlay.addEventListener('click', () => {
+    document.querySelectorAll('.mobile-dropdown').forEach(d => {
+        d.classList.remove('active');
+    });
+    document.querySelectorAll('.mobile-chevron').forEach(c => {
+        c.style.transform = 'rotate(0deg)';
+    });
+});
+        
+        // Slideshow
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slideshow .slide");
+        
+        function changeSlide() {
+            slides.forEach(s => s.classList.remove("active"));
+            slides[slideIndex].classList.add("active");
+            slideIndex = (slideIndex + 1) % slides.length;
+        }
+        
+        setInterval(changeSlide, 5000);
+        
+        // Initialize Swiper
+        const swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                0: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+        
+        // Waves Animation
+        const canvas = document.getElementById("waves");
+        const ctx = canvas.getContext("2d");
+        
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        window.addEventListener("resize", resize);
+        resize();
+        
+        const colors = [
+            "rgba(255, 0, 0, 0.2)",
+            "rgba(0, 128, 0, 0.2)",
+            "rgba(0, 0, 255, 0.2)",
+            "rgba(255, 255, 0, 0.2)",
+            "rgba(255, 165, 0, 0.2)",
+            "rgba(128, 0, 128, 0.2)"
+        ];
+        
+        class Wave {
+            constructor(y, amplitude, wavelength, speed, color) {
+                this.y = y;
+                this.amplitude = amplitude;
+                this.wavelength = wavelength;
+                this.speed = speed;
+                this.color = color;
+                this.offset = Math.random() * 1000;
+            }
+            
+            draw(t) {
+                ctx.beginPath();
+                ctx.moveTo(0, this.y);
+                for (let x = 0; x <= canvas.width; x += 10) {
+                    const y = this.y + Math.sin((x + t * this.speed + this.offset) / this.wavelength) * this.amplitude;
+                    ctx.lineTo(x, y);
+                }
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 3;
+                ctx.stroke();
+            }
+        }
+        
+        const waves = [];
+        
+        for (let i = 0; i < colors.length; i++) {
+            waves.push(
+                new Wave(
+                    canvas.height * (0.15 + i * 0.12),
+                    25 + i * 3,
+                    120 + i * 10,
+                    0.15,
+                    colors[i]
+                )
+            );
+        }
+        
+        function animate(t) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            waves.forEach(w => w.draw(t));
+            requestAnimationFrame(animate);
+        }
+        
+        animate(0);
+        // فقط این کد ساده را اضافه کنید
+document.addEventListener('DOMContentLoaded', function() {
+    // پیدا کردن تمام لینک‌های ارتباط با ما
+    const contactLinks = document.querySelectorAll('a');
+    
+    contactLinks.forEach(link => {
+        // بررسی آیا متن لینک "ارتباط با ما" است
+        const linkText = link.textContent.trim() || link.innerText.trim();
+        
+        if (linkText === 'ارتباط با ما' || linkText.includes('ارتباط با ما')) {
+            // تغییر href به id فوتر
+            link.href = '#contact-footer';
+            
+            // اضافه کردن event listener برای بستن منوی موبایل
+            link.addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const hamburgerBtn = document.getElementById('hamburgerBtn');
+                
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+    });
+    
+    // اگر از font awesome استفاده می‌کنید، می‌توانید آیکون اضافه کنید
+    const contactMenuItems = document.querySelectorAll('.menu a, .mobile-menu a');
+    contactMenuItems.forEach(item => {
+        if (item.textContent.includes('ارتباط با ما')) {
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-arrow-down';
+            icon.style.marginRight = '8px';
+            icon.style.fontSize = '0.9em';
+            item.prepend(icon);
+        }
+    });
+});
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/project/styles/app.css">
+    <link rel="stylesheet" href="/project/styles/blog.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="icon" href="/project/images/IMG_0717.svg">
+    <title>بلاگ مدرسه گویا</title>
+    <style>
+        canvas {
+            margin-top: 3rem;
+            display: block;
+            z-index: -1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="global-decoration">
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+        <div class="decoration-circle"></div>
+    </div>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="container nav-container">
+                <a href="/project/index.html" class="app-logo">
+                    <img src="/project/images/IMG_0718.svg" alt="لوگو" class="app-logo_Img" />
+                </a>
+                <ul class="menu">
+                    <li class="menu-item dropdown">
+                        <a href="#">مقاطع تحصیلی
+                            <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">پیش‌دبستانی</a></li>
+                            <li><a href="#">ابتدایی</a></li>
+                            <li><a href="#">متوسطه اول</a></li>
+                            <li><a href="#">متوسطه دوم</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">افتخارات</a></li>
+                    <li><a href="#">سرویس‌ها</a></li>
+                    <li><a href="/project/gallery.html">گالری</a></li>
+                    <li><a href="/project/blog.html" class="active">بلاگ</a></li>
+                    <li class="menu-item dropdown">
+                        <a href="#">ارتباط با ما
+                            <svg class="chevron-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">تماس با ما</a></li>
+                            <li><a href="#">آدرس مدرسه</a></li>
+                            <li><a href="#">فرم تماس</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="register">
+                    <a href="/project/register.html"><p class="text-register">پیش ثبت نام</p></a> 
+                </div>
+            </div>
+        </nav>
+        
+        <div class="blog-header">
+            <div class="container">
+                <h1 class="blog-title"> مدرسه گویا</h1>
+                <p class="blog-subtitle">جدیدترین مقالات، اخبار و رویدادهای آموزشی</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-main">
+        <div class="container">
+            <div class="row">
+                <!-- سایدبار -->
+                <div class="col-lg-4 col-md-5">
+                    <aside class="blog-sidebar">
+                        <!-- جستجو -->
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">جستجوی مقالات</h3>
+                            <div class="search-box">
+                                <input type="text" placeholder="جستجوی مقالات...">
+                                <button class="search-btn">جستجو</button>
+                            </div>
+                        </div>
+                        
+                        <!-- دسته‌بندی‌ها -->
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">دسته‌بندی‌ها</h3>
+                            <ul class="category-list">
+                                <li><a href="#" class="active">همه مقالات <span>12</span></a></li>
+                                <li><a href="#">اخبار مدرسه <span>5</span></a></li>
+                                <li><a href="#">روش‌های تدریس <span>3</span></a></li>
+                                <li><a href="#">فعالیت‌های دانش‌آموزی <span>8</span></a></li>
+                                <li><a href="#">مقالات آموزشی <span>7</span></a></li>
+                                <li><a href="#">توسعه فردی <span>4</span></a></li>
+                                <li><a href="#">فناوری در آموزش <span>6</span></a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- مقالات پربازدید -->
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">مقالات پربازدید</h3>
+                            <div class="popular-posts">
+                                <div class="popular-post">
+                                    <img src="/project/images/1.jpg" alt="مقاله پربازدید">
+                                    <div class="popular-post-content">
+                                        <h4><a href="#">نقش والدین در پیشرفت تحصیلی فرزندان</a></h4>
+                                        <span class="post-date">۲۵ فروردین ۱۴۰۳</span>
+                                    </div>
+                                </div>
+                                <div class="popular-post">
+                                    <img src="/project/images/10.jpg" alt="مقاله پربازدید">
+                                    <div class="popular-post-content">
+                                        <h4><a href="#">آموزش مهارت‌های زندگی در مدارس</a></h4>
+                                        <span class="post-date">۱۸ فروردین ۱۴۰۳</span>
+                                    </div>
+                                </div>
+                                <div class="popular-post">
+                                    <img src="/project/images/11.jpg" alt="مقاله پربازدید">
+                                    <div class="popular-post-content">
+                                        <h4><a href="#">تاثیر ورزش بر یادگیری دانش‌آموزان</a></h4>
+                                        <span class="post-date">۱۰ فروردین ۱۴۰۳</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- تگ‌ها -->
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">برچسب‌ها</h3>
+                            <div class="tags">
+                                <a href="#" class="tag">آموزش</a>
+                                <a href="#" class="tag">مدرسه</a>
+                                <a href="#" class="tag">خلاقیت</a>
+                                <a href="#" class="tag">دانش‌آموز</a>
+                                <a href="#" class="tag">فناوری</a>
+                                <a href="#" class="tag">ورزش</a>
+                                <a href="#" class="tag">هنر</a>
+                                <a href="#" class="tag">والدین</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                
+                <!-- محتوای اصلی -->
+                <div class="col-lg-8 col-md-7">
+                    <div class="blog-content">
+                        <!-- فیلتر مقالات -->
+                        <div class="blog-filter">
+                            <div class="filter-options">
+                                <span class="filter-label">مرتب‌سازی بر اساس:</span>
+                                <select class="filter-select">
+                                    <option value="newest">جدیدترین</option>
+                                    <option value="oldest">قدیمی‌ترین</option>
+                                    <option value="popular">پربازدیدترین</option>
+                                </select>
+                            </div>
+                            <div class="filter-results">
+                                <span>۱۲ مقاله یافت شد</span>
+                            </div>
+                        </div>
+                        
+                        <!-- لیست مقالات -->
+                        <div class="blog-posts">
+                            <!-- مقاله ۱ -->
+                            <article class="blog-post">
+                                <div class="post-image">
+                                    <img src="/project/images/1.jpg" alt="مقاله آموزشی">
+                                    <div class="post-category">مقالات آموزشی</div>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span class="post-date"><i class="far fa-calendar"></i> ۲ فروردین ۱۴۰۳</span>
+                                        <span class="post-author"><i class="far fa-user"></i> مدیریت مدرسه</span>
+                                        <span class="post-comments"><i class="far fa-comment"></i> ۵ نظر</span>
+                                    </div>
+                                    <h2 class="post-title"><a href="single-post.html">راهکارهای افزایش خلاقیت در دانش‌آموزان</a></h2>
+                                    <p class="post-excerpt">خلاقیت یکی از مهم‌ترین مهارت‌هایی است که دانش‌آموزان برای مواجهه با چالش‌های آینده به آن نیاز دارند. در این مقاله به روش‌های عملی پرورش خلاقیت در محیط مدرسه می‌پردازیم.</p>
+                                    <a href="single-post.html" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </article>
+                            
+                            <!-- مقاله ۲ -->
+                            <article class="blog-post">
+                                <div class="post-image">
+                                    <img src="/project/images/10.jpg" alt="فعالیت دانش‌آموزی">
+                                    <div class="post-category">فعالیت‌های دانش‌آموزی</div>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span class="post-date"><i class="far fa-calendar"></i> ۲۵ اسفند ۱۴۰۲</span>
+                                        <span class="post-author"><i class="far fa-user"></i> معاون آموزشی</span>
+                                        <span class="post-comments"><i class="far fa-comment"></i> ۸ نظر</span>
+                                    </div>
+                                    <h2 class="post-title"><a href="single-post.html">برگزاری اردوی علمی به پارک علم و فناوری</a></h2>
+                                    <p class="post-excerpt">اردوی علمی دانش‌آموزان پایه هشتم به پارک علم و فناوری دانشگاه تهران با هدف آشنایی با آخرین دستاوردهای علمی کشور برگزار شد. در این گزارش تصویری با ما همراه باشید.</p>
+                                    <a href="single-post.html" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </article>
+                            
+                            <!-- مقاله ۳ -->
+                            <article class="blog-post">
+                                <div class="post-image">
+                                    <img src="/project/images/11.jpg" alt="اخبار مدرسه">
+                                    <div class="post-category">اخبار مدرسه</div>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span class="post-date"><i class="far fa-calendar"></i> ۱۸ اسفند ۱۴۰۲</span>
+                                        <span class="post-author"><i class="far fa-user"></i> روابط عمومی</span>
+                                        <span class="post-comments"><i class="far fa-comment"></i> ۱۲ نظر</span>
+                                    </div>
+                                    <h2 class="post-title"><a href="single-post.html">کسب رتبه برتر در مسابقات ریاضی استان</a></h2>
+                                    <p class="post-excerpt">دانش‌آموزان دبیرستان گویا در مسابقات ریاضی استان تهران خوش درخشیدند و موفق به کسب ۳ مقام برتر شدند. در این مراسم از دانش‌آموزان و مربیان تقدیر به عمل آمد.</p>
+                                    <a href="single-post.html" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </article>
+                            
+                            <!-- مقاله ۴ -->
+                            <article class="blog-post">
+                                <div class="post-image">
+                                    <img src="" alt="فناوری در آموزش">
+                                    <div class="post-category">فناوری در آموزش</div>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span class="post-date"><i class="far fa-calendar"></i> ۱۰ اسفند ۱۴۰۲</span>
+                                        <span class="post-author"><i class="far fa-user"></i> دبیر فناوری</span>
+                                        <span class="post-comments"><i class="far fa-comment"></i> ۶ نظر</span>
+                                    </div>
+                                    <h2 class="post-title"><a href="single-post.html">استفاده از واقعیت افزوده در تدریس علوم</a></h2>
+                                    <p class="post-excerpt">با راه‌اندازی آزمایشگاه واقعیت افزوده در مدرسه، دانش‌آموزان می‌توانند مفاهیم علمی را به صورت تعاملی و سه‌بعدی تجربه کنند. این فناوری تحول بزرگی در روش تدریس ایجاد کرده است.</p>
+                                    <a href="single-post.html" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </article>
+                        </div>
+                        
+                        <!-- صفحه‌بندی -->
+                        <nav class="pagination-container">
+                            <ul class="pagination">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- فوتر -->
+   <footer class="footer">
+  <!-- بخش بالایی فوتر با افکت موجی -->
+  <div class="footer-top-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
+    </svg>
+  </div>
+
+  <div class="footer-container">
+    <!-- ستون لوگو و توضیحات -->
+    <div class="footer-col about">
+      <div class="footer-logo">
+        <img src="/project/images/IMG_0718.svg" alt="لوگوی مدرسه گویا">
+        <h3>مجتمع آموزشی گویا</h3>
+      </div>
+      <p class="footer-description">
+        مدرسه بین‌المللی گویا با بیش از ۳۳ سال تجربه درخشان در آموزش بین‌المللی، پذیرای دانش‌آموزان از پیش‌دبستانی تا پایان دبیرستان است.
+      </p>
+      <div class="footer-certificates">
+        <span class="certificate-badge">مجوز رسمی آموزش و پرورش</span>
+        <span class="certificate-badge">مدرسه بین‌المللی</span>
+      </div>
+    </div>
+
+    <!-- ستون دسترسی سریع -->
+    <div class="footer-col links">
+      <h3 class="footer-title">دسترسی سریع</h3>
+      <ul>
+        <li><a href="#"><span class="link-icon">🏠</span> صفحه اصلی</a></li>
+        <li><a href="/project/services.html"><span class="link-icon">🎓</span> مقاطع تحصیلی</a></li>
+        <li><a href="/project/services.html"><span class="link-icon">⚙️</span> سرویس‌ها</a></li>
+        <li><a href="/project/gallery.html"><span class="link-icon">📷</span> گالری</a></li>
+        <li><a href="/project/blog.html"><span class="link-icon">📝</span> بلاگ</a></li>
+        <li><a href="/project/register.html"><span class="link-icon">📋</span> پیش ثبت نام</a></li>
+      </ul>
+    </div>
+
+    <!-- ستون ارتباط با ما -->
+    <div class="footer-col contact">
+      <h3 class="footer-title">ارتباط با ما</h3>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-icon">📍</span>
+          <div>
+            <strong>شعبه ۱ (واحد اداری)</strong>
+            <p>تهران، فرمانیه، خیابان لواسانی، کوچه پورهاشمی، پلاک ۱/۱</p>
+          </div>
+        </li>
+        <li>
+          <span class="contact-icon">📍</span>
+          <div>
+            <strong>شعبه ۲ (پیش‌دبستان)</strong>
+            <p>تهران، منطقه‌ی ۱، نیاوران، کوچه منیعی، پلاک شش</p>
+          </div>
+        </li>
+        <li>
+          <span class="contact-icon">📍</span>
+          <div>
+            <strong>شعبه ۳ (همه مقاطع دختران)</strong>
+            <p>تهران، نیاوران، خیابان آقایی، پلاک ۳۲</p>
+          </div>
+        </li>
+      </ul>
+      
+      <div class="contact-info">
+        <p><span class="contact-icon">📞</span> تلفن: <a href="tel:02179996">۰۲۱-۷۹۹۹۶</a></p>
+        <p><span class="contact-icon">📱</span> روابط عمومی: <a href="tel:091279996">۰۹۱۲-۷۹۹۹۶</a></p>
+        <p><span class="contact-icon">✉️</span> ایمیل: <a href="mailto:info@gouya.school">info@gouya.school</a></p>
+      </div>
+    </div>
+
+    <!-- ستون شبکه‌های اجتماعی -->
+    <div class="footer-col social">
+      <h3 class="footer-title">شبکه‌های اجتماعی</h3>
+      <p class="social-description">ما را در شبکه‌های اجتماعی دنبال کنید و از آخرین اخبار مدرسه مطلع شوید.</p>
+      
+      <div class="social-grid">
+        <a href="#" class="social-link instagram" aria-label="اینستاگرام">
+          <img src="/project/images/icon/Instagram_icon.png" alt="اینستاگرام">
+          <span>اینستاگرام</span>
+        </a>
+        <a href="#" class="social-link linkedin" aria-label="لینکدین">
+          <img src="/project/images/icon/linkedin-logo-linkedin-icon-transparent-free-png.webp" alt="لینکدین">
+          <span>لینکدین</span>
+        </a>
+        <a href="#" class="social-link telegram" aria-label="تلگرام">
+          <img src="/project/images/icon/Telegram_logo.svg.webp" alt="تلگرام">
+          <span>تلگرام</span>
+        </a>
+        <a href="#" class="social-link whatsapp" aria-label="واتساپ">
+          <img src="/project/images/icon/WhatsApp.svg.webp" alt="واتساپ">
+          <span>واتساپ</span>
+        </a>
+        <a href="#" class="social-link youtube" aria-label="یوتیوب">
+          <img src="/project/images/icon/YouTube_full-color_icon_(2017).svg.webp" alt="یوتیوب">
+          <span>یوتیوب</span>
+        </a>
+        <a href="#" class="social-link aparat" aria-label="آپارات">
+          <img src="/project/images/IMG_0717.PNG" alt="آپارات">
+          <span>آپارات</span>
+        </a>
+      </div>
+      
+      <!-- خبرنامه -->
+      <div class="newsletter">
+        <h4>عضویت در خبرنامه</h4>
+        <p>برای دریافت اخبار و اطلاعیه‌ها ایمیل خود را وارد کنید.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="آدرس ایمیل شما" required>
+          <button type="submit">عضویت</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- بخش پایینی فوتر -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-container">
+      <div class="copyright">
+        <p>© کلیه حقوق این وبسایت متعلق به <strong>مجتمع آموزشی بین‌المللی گویا</strong> می‌باشد. ۱۴۰۳</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">حریم خصوصی</a>
+        <a href="#">قوانین و مقررات</a>
+        <a href="#">سوالات متداول</a>
+        <a href="#">نقشه سایت</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- آیکون‌های فونت‌آوسام -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // اسکریپت برای تعاملات صفحه بلاگ
+        document.addEventListener('DOMContentLoaded', function() {
+            // فعال‌سازی لینک‌های منو
+            const currentPage = window.location.pathname;
+            const navLinks = document.querySelectorAll('.menu a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // مدیریت جستجو
+            const searchBtn = document.querySelector('.search-btn');
+            const searchInput = document.querySelector('.search-box input');
+            
+            searchBtn.addEventListener('click', function() {
+                if (searchInput.value.trim() !== '') {
+                    alert('جستجو برای: ' + searchInput.value);
+                    // در حالت واقعی، اینجا درخواست AJAX یا هدایت به صفحه جستجو انجام می‌شود
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchBtn.click();
+                }
+            });
+            
+            // مدیریت فیلتر مرتب‌سازی
+            const filterSelect = document.querySelector('.filter-select');
+            filterSelect.addEventListener('change', function() {
+                alert('مرتب‌سازی بر اساس: ' + this.value);
+                // در حالت واقعی، اینجا مقالات مجدداً مرتب می‌شوند
+            });
+            
+            // مدیریت تگ‌ها
+            const tags = document.querySelectorAll('.tag');
+            tags.forEach(tag => {
+                tag.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    tags.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    alert('فیلتر بر اساس تگ: ' + this.textContent);
+                });
+            });
+            
+            // مدیریت دسته‌بندی‌ها
+            const categoryLinks = document.querySelectorAll('.category-list a');
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    categoryLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

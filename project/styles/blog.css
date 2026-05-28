@@ -1,0 +1,517 @@
+/* استایل‌های اختصاصی صفحه بلاگ */
+
+/* هدر بلاگ */
+.blog-header {
+    background: linear-gradient(135deg, var(--primary-yellow), var(--primary-purple));
+    padding: 5rem 0 3rem;
+    text-align: center;
+    color: white;
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/project/images/pattern.svg');
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.blog-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-family: "farsi-bold";
+}
+.blog-title::after{
+       content: '';
+    display: block;
+    width: 150px;
+    height: 6px;
+    background: linear-gradient(90deg, 
+        var(--vibrant-yellow), 
+        var(--vibrant-orange), 
+        var(--primary-purple));
+    margin: 1.5rem auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.blog-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+    font-family: "farsi-medium";
+}
+
+/* محتوای اصلی بلاگ */
+.blog-main {
+    padding: 4rem 0;
+}
+
+/* سایدبار */
+.blog-sidebar {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 2rem;
+}
+
+.widget-title {
+    font-size: 1.5rem;
+    color: var(--primary-purple);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary-yellow);
+    font-family: "farsi-bold";
+}
+
+/* جستجو */
+.search-box {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px 0 0 10px;
+    font-size: 1rem;
+    font-family: "farsi-medium";
+    transition: all 0.3s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+}
+
+.search-btn {
+    background: var(--primary-yellow);
+    color: var(--primary-purple);
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "farsi-bold";
+    transition: all 0.3s;
+}
+
+.search-btn:hover {
+    background: var(--primary-purple);
+    color: white;
+}
+
+/* لیست دسته‌بندی‌ها */
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.category-list li {
+    margin-bottom: 0.5rem;
+}
+
+.category-list a {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: "farsi-medium";
+}
+
+.category-list a:hover, .category-list a.active {
+    background: var(--primary-yellow);
+    color: var(--primary-purple);
+    transform: translateX(-5px);
+}
+
+.category-list a span {
+    background: var(--primary-purple);
+    color: white;
+    padding: 0.1rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+/* مقالات پربازدید */
+.popular-posts {
+    margin-bottom: 2rem;
+}
+
+.popular-post {
+    display: flex;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.popular-post:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.popular-post img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 1rem;
+}
+
+.popular-post-content h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.popular-post-content h4 a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-family: "farsi-bold";
+}
+
+.popular-post-content h4 a:hover {
+    color: var(--primary-purple);
+}
+
+.post-date {
+    font-size: 0.85rem;
+    color: #777;
+    font-family: "farsi-medium";
+}
+
+/* تگ‌ها */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: #f0f0f0;
+    color: #555;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: "farsi-medium";
+}
+
+.tag:hover, .tag.active {
+    background: var(--primary-yellow);
+    color: var(--primary-purple);
+}
+
+/* فیلتر مقالات */
+.blog-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.filter-label {
+    font-weight: bold;
+    margin-left: 1rem;
+    color: var(--primary-purple);
+    font-family: "farsi-bold";
+}
+
+.filter-select {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: white;
+    color: #333;
+    font-family: "farsi-medium";
+    cursor: pointer;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+}
+
+.filter-results {
+    color: #666;
+    font-family: "farsi-medium";
+}
+
+/* مقالات */
+.blog-posts {
+    margin-bottom: 3rem;
+}
+
+.blog-post {
+    display: flex;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.post-image {
+    flex: 0 0 40%;
+    position: relative;
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.blog-post:hover .post-image img {
+    transform: scale(1.05);
+}
+
+.post-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary-yellow);
+    color: var(--primary-purple);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    font-family: "farsi-bold";
+}
+
+.post-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.post-meta {
+    display: flex;
+    margin-bottom: 1rem;
+    color: #777;
+    font-size: 0.9rem;
+    font-family: "farsi-medium";
+}
+
+.post-meta span {
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.post-meta i {
+    margin-left: 0.3rem;
+}
+
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    font-family: "farsi-bold";
+}
+
+.post-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.post-title a:hover {
+    color: var(--primary-purple);
+}
+
+.post-excerpt {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-family: "farsi-medium";
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    background: var(--primary-purple);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-family: "farsi-bold";
+}
+
+.read-more:hover {
+    background: var(--primary-yellow);
+    color: var(--primary-purple);
+    transform: translateX(-5px);
+}
+
+.read-more i {
+    margin-right: 0.5rem;
+    transition: transform 0.3s;
+}
+
+.read-more:hover i {
+    transform: translateX(-3px);
+}
+
+/* صفحه‌بندی */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-item {
+    margin: 0;
+}
+
+.page-link {
+    padding: 0.75rem 1.25rem;
+    background: white;
+    color: #333;
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: "farsi-bold";
+}
+
+.page-item:first-child .page-link {
+    border-radius: 50px 0 0 50px;
+}
+
+.page-item:last-child .page-link {
+    border-radius: 0 50px 50px 0;
+}
+
+.page-link:hover {
+    background: #f8f9fa;
+    color: var(--primary-purple);
+}
+
+.page-item.active .page-link {
+    background: var(--primary-yellow);
+    color: var(--primary-purple);
+    border-color: var(--primary-yellow);
+}
+
+/* ریسپانسیو */
+@media (max-width: 992px) {
+    .blog-post {
+        flex-direction: column;
+    }
+    
+    .post-image {
+        flex: 0 0 250px;
+    }
+    
+    .blog-filter {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-options {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-title {
+        font-size: 2.5rem;
+    }
+    
+    .blog-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .blog-sidebar {
+        position: static;
+    }
+    
+    .popular-post img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .post-meta {
+        flex-wrap: wrap;
+    }
+    
+    .post-meta span {
+        margin-bottom: 0.5rem;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+        border-radius: 15px;
+    }
+    
+    .page-item:first-child .page-link,
+    .page-item:last-child .page-link {
+        border-radius: 0;
+    }
+}
+
+/* استایل برای لینک فعال در منو */
+.menu a.active {
+    color: var(--primary-purple);
+    font-weight: bold;
+    position: relative;
+}
+
+.menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-purple);
+}
