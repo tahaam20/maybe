@@ -3,7 +3,6 @@
 @import url(/project/styles/fonts.css);
 @import url(/project/styles/blog.css);
 @import url(/project/styles/gallery.css);
-@import url(/project/styles/MIDDLE-ONE.CSS);
 /* نشانگر اسکرول برای لینک ارتباط با ما */
 a[href="#contact-footer"] {
     position: relative;
