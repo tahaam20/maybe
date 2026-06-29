@@ -312,9 +312,7 @@
             }
         }
          .grade-gallery-section {
-            box-shadow: 0 0 6rem rgb(255, 229, 29);
-            padding: 8rem 0;
-            transform: translateZ(0) skewY(-6deg);
+          
             display: flex;
             justify-content: center;
             align-items: center;
@@ -434,13 +432,13 @@
             transform: translateY(-50%);
             width: 60px;
             height: 60px;
-            background: var(--primary-purple);
+            background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 22px;
-            color: white;
+            color: blue;
             cursor: pointer;
             z-index: 10;
             box-shadow: 0 10px 30px rgba(113, 63, 148, 0.3);
@@ -457,11 +455,11 @@
         }
         
         .grade-nav-btn.prev {
-            right: -30px;
+            right: -10px;
         }
         
         .grade-nav-btn.next {
-            left: -30px;
+            left: -10px;
         }
         
         .grade-nav-btn i {
@@ -626,6 +624,7 @@
             color: var(--primary-purple);
             transform: scale(1.1);
         }
+      
         
         /* ریسپانسیو */
         @media (max-width: 1200px) {
@@ -649,11 +648,11 @@
             }
             
             .grade-nav-btn.prev {
-                right: -25px;
+                right: -35px;
             }
             
             .grade-nav-btn.next {
-                left: -25px;
+                left: -35px;
             }
         }
         
